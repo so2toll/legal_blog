@@ -1,0 +1,147 @@
+---
+//Check if Astro auth cookie exists
+if(!Astro.cookies.has('bright_anon')){
+    console.log('No cookie found');
+    // return Astro.redirect('/log-in/')
+
+    const headers = new Headers();
+    // headers.append('Set-Cookie', `bright_anon=${ encryptToken }; Path=/; HttpOnly; expires=${new Date(Date.now() + 8 * 60 * 60 * 1000).toUTCString()}; sameSite="lax"`);
+        
+console.log(424534234)
+    // headers.append('Location', '/log-in/');
+
+    // return new Response('', {
+    //   status: 302,
+    //   headers,
+    // });
+    
+    // return Astro.redirect('log-in/')
+}else{
+    console.log('Cookie found');
+    // return Astro.redirect('/log-in/')
+}
+
+---
+
+ <!-- Navbar -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Insight3d</title>
+     
+ </head>
+ <body>
+     <nav class="navbar">
+         <button id="toggleButton" class="menu-toggle">☰</button>
+         <ul class="nav-list" id="navList">
+            
+             
+            <!-- <li><a href="#">Profile</a></li>
+             <li><a href="#">Settings</a></li> -->
+         </ul>
+     </nav>
+     
+ </body>
+ </html>
+ 
+ <style>
+  body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.navbar {
+    background-color: black;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%; /* Ensure navbar takes full width */
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%; /* Ensure nav-list takes full width */
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
+
+.sidenav {
+    /* ... rest of the styles ... */
+    height: 100vh; /* Ensure side nav takes full height */
+}
+
+.main-content {
+    /* ... rest of the styles ... */
+}
+
+/* ... other styles remain the same ... */
+
+
+.nav-list a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-list a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.menu-toggle {
+    background-color: #333;
+    border: none;
+    color: white;
+    padding: 14px 16px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-list {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+ </style>
+
+ <!-- <script>
+  document.getElementById('toggleButton').addEventListener('click', function() {
+    var navList = document.getElementById('navList');
+    if (navList.style.display === 'block') {
+        navList.style.display = 'none';
+    } else {
+        navList.style.display = 'block';
+    }
+});
+
+ </script> -->
+<!-- End Navbar -->

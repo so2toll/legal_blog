@@ -1,0 +1,169 @@
+---
+import type { MarkdownInstance } from 'astro'
+import type { Frontmatter } from '../../config'
+import BlogCard from '../../components/blogcard.astro'
+import PaginateControl from '../../components/paginatecontrol/paginatecontrol.astro'
+import BlogcardState from '../../components/blogcard-state-page.astro'
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+
+}
+
+
+const { facilityPaths, statePath,  stateName, dateModified, type  } = Astro.props
+const { data  } = Astro.props as any
+
+let content={header:'' as string | undefined, description:''};
+if ( data != undefined) {
+  switch (type) {
+    case 'how-it-works':
+      content = {header:"How it Works", description: "Our goal is to make sure you always have everything you need to support your incarcerated loved one. Here's how it all works."}
+      break;
+    case 'about':
+     content = {header:"byyebye", description:''}
+     break;
+    case 'pricing':
+     content = {header:"One low price, many ways to connect", description:'Let your love language show. Send unlimited photos, letters, postcards, greeting cards, and web articles to your loved one. All for one low price.'}
+     break;
+     case 'state-page':
+      // let data =data 
+     content = {header: stateName, description:'asbringing it to you',  }
+     break;
+     case 'facility-page':
+      // let data =data 
+     content = {header: stateName, description:'ssbringing it to you',}
+     break;
+    default:
+      content = {header:"ssssbyyebye", description:''}
+      break;
+  }
+}
+
+---
+
+<div class="container ">
+ 
+<ul class="gallery">
+  {data.data.map( ( res: any ) => 
+  <BlogcardState data={res} />
+
+  )}
+</ul> 
+
+
+  <div>
+
+  {
+    data.size < data.total && (
+      <div class="ml-4">  
+      
+        <nav
+          class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
+          aria-label="Pagination" style="display:inline-block"
+        > 
+          <a
+            href={
+              data.url.prev
+                ? import.meta.env.BASE_URL + data.url.prev.slice(1)
+                : '#'
+            }
+            class:list={[
+              'relative inline-flex items-center px-2 py-2 rounded-l-md border text-sm font-medium',
+              data.url.prev
+                ? 'border-cyan-300 bg-white text-gray-500 hover:bg-cyan-100 dark:border-cyan-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-cyan-900'
+                : 'border-gray-300 bg-gray-300 text-gray-400 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-500',
+            ]}
+          >
+            <span >Previous</span>
+            
+          </a>
+          {Array.from({ length: data.lastPage }, (_, index) => index + 1).map(
+            i => (
+              <a
+                href={import.meta.env.BASE_URL + 'jail-prisons/'+stateName+'/' + (i > 1 ? i : '1') +'/'}
+                aria-current="page"
+                class:list={[
+                  i == data.currentPage
+                    ? 'z-10 bg-pink-100 border-cyan-500 text-cyan-600 dark:bg-pink-900 dark:border-pink-500 dark:text-cyan-200'
+                    : 'bg-white border-cyan-300 text-gray-500 hover:bg-cyan-100 dark:bg-gray-900 dark:border-cyan-700 dark:text-gray-300 dark:hover:bg-cyan-900',
+                  'relative inline-flex items-center px-4 py-2 border text-sm font-medium',
+                ]}
+              >
+                {i}
+              </a>
+            )
+          )}
+          <a
+            href={
+              data.url.next
+                ? import.meta.env.BASE_URL + data.url.next.slice(1)
+                : '#'
+            }
+            class:list={[
+              'relative inline-flex items-center px-2 py-2 rounded-r-md border text-sm font-medium',
+              data.url.next
+                ? 'border-cyan-300 bg-white text-gray-500 hover:bg-cyan-100 dark:border-cyan-700 dark:bg-gray-900 dark:text-gray-300 dark:hover:bg-cyan-900'
+                : 'border-gray-300 bg-gray-300 text-gray-400 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-500',
+            ]}
+          >
+            <span >Next</span>
+            
+          </a>
+        </nav>
+      
+      </div>
+    )
+  }
+
+  </div>
+</div>
+
+<style>
+  .gallery {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Extra Small Devices, Phones */
+  @media only screen and (min-width: 480px) {
+    .gallery {
+      column-count: 1;
+      column-gap: 3px;
+    }
+  }
+
+  /* Small Devices, Tablets */
+  @media only screen and (min-width: 768px) {
+    .gallery {
+      column-count: 2;
+      column-gap: 3px;
+    }
+  }
+
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width: 992px) {
+    .gallery { /* Masonry container */
+      column-count: 2;
+      column-gap: 3px;
+    }
+  }
+
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width: 1200px) {
+    .gallery {
+      column-count: 3;
+      column-gap: 0.2rem;
+      width: 100%;
+    }
+  }
+
+</style>
+  <!-- {data.url.next ? <a href={data.url.next}>Next</a> : null} -->

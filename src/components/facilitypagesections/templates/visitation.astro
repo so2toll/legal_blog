@@ -1,0 +1,339 @@
+---
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+  test?:string
+  slug?:string
+}
+
+// const { data, type, statePath, slug  } = Astro.props as any
+const {data } = Astro.props as any
+const {updatedOn, title, path, facilityName, slug,   stateName, city, county, state, facility, address, phone} = data.props.post
+---
+<section >
+	
+	<h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to Find Someone in {facilityName}  </h2>
+<div class="flex flex-col lg:flex-row items-center justify-between" style="  display:flex; width: 100%;  align-items: center;
+"
+>
+<div class="w-full lg:w-1/4 mb-8 lg:mb-0 h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden" style="margin:2%; padding:2%">
+		
+  <h3 class="text-2xl text-center lg:text-xxl  text-gray-800 dark:text-gray-100 mb-4 font-bold ">
+	  Step 1
+  </h3>
+ 
+	  <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+		Go to <a target="_blank" href="/">victim-assist.com</a> to start a search for your inmate. First, click "Get Started" and enter your inmate's first and last name.
+	  </p>
+
+   
+  </div>
+  <div class="w-full lg:w-1/4 mb-8 lg:mb-0 h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden" style="margin:2%; padding:2%">
+		
+	<h3 class="text-2xl text-center lg:text-xxl  text-gray-800 dark:text-gray-100 mb-4 font-bold ">
+		Step 2 
+	</h3>
+   
+		<p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+		  Make sure to check if your inmate's facility is county, state, or federal.
+		</p>
+
+		
+	</div>
+	<div class="w-full lg:w-1/4 mb-8 lg:mb-0 h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden" style="margin:2%; padding:2%">
+		
+	  <h3 class="text-2xl text-center lg:text-xxl  text-gray-800 dark:text-gray-100 mb-4 font-bold ">
+		  Step 3
+	  </h3>
+	 
+		  <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+			Find your inmate and select from the list of services designed to help you keep in touch.
+		  </p>
+
+	  </div>
+  <div class="w-full lg:w-1/4 mb-8 lg:mb-0 h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden " style="margin: 2%; padding:2%;">
+	
+	  <!-- <h2 class="text-2xl text-center lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+		  How it Works
+	  </h2> -->
+	  <h3 class="text-2xl text-center lg:text-xxl  text-gray-800 dark:text-gray-100 mb-4 font-bold " style="margin: 5%;">
+		  Step 4 
+	  </h3>
+	  <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+		Finally, you'll need to register an account with Victim Assist, and we'll provide you with your loved one's contact information. (Don't worry, registration is completely free!)
+	  </p>
+	  
+  </div>
+</div>
+	
+		
+	
+
+</section>
+<div class="sm:text-lg text-gray-600 dark:text-gray-300 lg:mx-auto opener">
+	<section class="correction_section4" id="sid1">
+		<div class="container">
+			
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Visitation </h2><br/>
+						<p>Victim Assist understand how difficult it is for families to stay away from their inmate and it is important to familiarize yourself with the basic of inmate visitation before planning a visit as each facility has specific rules that you must follow. All visitors must be pre-approved; your inmate must put you on the pre-approved visitation list in order for you to visit them which is later reviewed by the correctional facility. When considering approval, correctional facilities look at many factors as all the formalities need to be done. Many facilities limit the number of visitors therefore inmate have to narrow down the list of potential visitors. All correctional facilities have their own set of rules which you need to follow. You will be expected to follow the prison rules, no matter how arbitrary they may seem, when you visit.</p><br/>
+
+		<p> The inmate you plan on visiting should be able to advise you the visiting time schedule for that prison, however it is always a good idea to call the prison before to ensure visitation is permitted and whether potential visitors are approved or not. All the prisoners are searched before and after any visits due to the security reasons. The families visiting their inmates need to respect the dress code of the particular prison otherwise they may be refused visitation. All visitors are expected to present a valid, government issued photo ID. Victim Assist have also introduced video visitation to connect families and inmate when it becomes difficult for them to visit, you need to first schedule a visit and have it approved by your inmate's facility, by signing up with Victim Assist video visitation your inmate will be just a click away.</p>
+
+					
+					</div>
+		
+		</div>
+	</section>
+	<section class="correction_section5" id="sid2">
+		<div class="container">
+			<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">What to wear when visiting inmate at {facilityName}</h2><br/>
+			<div class="">
+				<p>Each facility requires that their rules be followed according to local ordinances. Typically, for any given institution you want to make sure to wear appropriate attire. Make sure your outfits are not too tight. Different states may have different rules on attire. For information on what to wear in {state}, be sure to check out their appropriate state laws for  {state}'s Department of Corrections at your State's official website.</p>
+			</div>
+					
+		</div>
+
+	</section>
+	<section class="correction_section4" id="sid3">
+		<div class="container">
+			
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">What can I bring to visit an inmate in {facilityName}, {city}, {state}</h2><br/>
+					<p>Every Inmate facility has different procedures, so is the case with {facilityName} {city} The General list of items that prohibited is as follows, However Please check out the {facilityName}'s Department of corrections Website to get the whole list.</p>
+					
+					</div>
+
+		</div>
+	</section>
+	<section class="correction_section5" id="sid5">
+		<div class="container">
+			<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">General List</h2><br/>
+			<div class="">
+						<p>The following items are strictly prohibited:</p>
+						<ul>
+							<li>Mobile phones / Cameras / Video cameras / Recording devices;</li>
+							<li>Cigarettes / Tobacco;</li>
+							<li>Drugs, syringes or any other drug paraphernalia;</li>
+							<li>Weapons (guns, knives etc.);</li>
+							<li>Chemicals / Flammable liquids / Explosives;</li>
+							<li>Medication: over the counter, prescribed or herbal (carriage of diabetic pens and epi-pens subject to approval by a Superintendent);</li>
+							<li>Alcohol and alcohol based products;</li>
+							<li>Bags for personal property, non-transparent, (i.e. briefcases, backpacks, handbags, wallets, purses etc.);</li>
+							<li>Personal property, including keys (other than Visitor Reception Centre locker keys), money, personal identification;</li>
+							<li>Electronic games consoles, MP3 players, iPods, electronic storage devices including USB flashdrives, memory sticks and heart rate monitors (except where approved by a Superintendent);</li>
+							<li>Mliti-media items, CDs, DVDs, films, videos, prohibited publications;</li>
+							<li>Electronic items, including rechargeable toothbrushes, razors, clippers etc. (except for medical reasons, subject to approval by a Superintendent);</li>
+							<li>Lighters, matches, candles, incense, aerosol-pressure spray can;
+							Any food or drink;</li>
+							<li>Metal cutlery / glass bottles or glass containers, non-transparent lunch boxes;</li>
+							<li>Colours / patches / gang identification and associated clothing;</li>
+							<li>Paint, pens and highlighters with non-transparent casing, scissors, knitting needles;</li>
+							<li>Tattooing materials, tools, weights, magnet / magnetic devices.</li>
+						</ul>
+			</div>
+
+			</div>	
+		
+	</section>
+	<section class="correction_section6" id="sid6">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">What are the Visitation hours for {facilityName}</h2><br/>
+					<p>Inmates are required to complete a Visitor Registration form and submit it at {facilityName}, those who are approved on this form will be allowed to visit. All approved visitor must show a valid ID before visiting. All visitors must be 18 years of age. Minors will not be permitted unless accompanied by parents or a legal guardian. Please contact the {facilityName} for the timings.</p>
+					</div>	
+				</div>
+			
+	</section>
+	<section class="correction_section5" id="sid">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Can I schedule for Conjugal visit in {facilityName},  {city}, {state}</h2><br/>
+					<p>Contact {facilityName} for the rules of the visit as only four states currently allow Conjugal visit.</p>
+					</div>	
+				</div>
+	</section>
+	<section class="correction_section6" id="sid7">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to schedule a visit in {facilityName}</h2><br/>
+					<p>{facilityName} request visitors to schedule the visit one day in advance in order to avoid trouble while visiting your inmate, all visitors are requested to arrive at least 15 minutes in advance. Visitors are required to show valid photo ID at the check-in.</p>
+					</div>
+				</div>
+	</section>
+	<section class="correction_section5" id="sid8">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">What are the requirement to visit your inmate in {facilityName}, {city}, {state}</h2><br/>
+					<p>Visitors must register in the Inmate Visitation system prior to scheduling an appointment with the inmate. Walk in visit are welcome, but are available on a first come first basis and are subject to availability. Contact the {facilityName} for scheduling a visit with your inmate.</p>
+					</div>	
+				</div>
+	</section>
+	<section class="correction_section6" id="sid9">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to make an appointment to visit your inmate in {facilityName}, {city}, {state}</h2><br/>
+					<p>Contact {facilityName} to schedule an appointment with your inmate and to check the time slot, as the inmates are allowed one visit per day. Visitors are required to check the timings and regulations before visiting the prison.</p>
+					</div>
+				</div>
+	</section>
+	<section class="correction_section5" id="sid10">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to book a prison visit online in {facilityName}, {city}, {state}</h2><br/>
+					<p>Booking a prison visit online is simple as it takes about 5 minutes of your time. It lets you select 3 slots instead of 1 and you can check with your inmate or the {facilityName} for the visiting hours. The prisoner must add you to their visitor list before you book a visit. You have to create an account online with {facilityName} to book the slot online once it gets confirmed by {facilityName} you can visit your inmate.</p>
+					</div>	
+				</div>
+	</section>
+	<section class="correction_section6" id="sid11">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to connect with your inmate through video visit from home in {facilityName}, {city}, {state}</h2><br/>
+					<p>Video Visit is a convenient way to connect with your inmate without traveling to the prison or writing an inmate, these video visits can be conducted at home from your Laptop or Android mobile device as it saves you time and expense. Children can now also communicate without visiting the facility. Visitors need to create an account with {facilityName} and get it approved by the facility in order to use this service.</p>
+					</div>
+				</div>
+	</section>
+	<section class="correction_section5" id="sid12">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to connect through jail video visitation in {facilityName}, {city}, {state}</h2><br/>
+					<p>Jails are now replacing personal visit through video visit in order to avoid huge traffic and making it convenient for the families of an inmate. The Inmate must register their families on the list which needs to be approved by the {facilityName}.</p>
+					</div>	
+				</div>
+	</section>
+	<section class="correction_section6" id="sid13">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Phone Calls</h2><br/>
+					<p>Founded in 2013, Victim Assist is the rising leader of jail and prison inmate calling service. Headquartered in Western U.S, Victim Assist has taken the mission to break the communication barrier between inmates and their family. With subscribers in over 88 countries, Victim Assist is reaching new levels to connect inmates with their friends and families.</p>
+					</div>
+				</div>
+	</section>
+	<section class="correction_section5" id="sid14">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to collect calls from Jail in {facilityName}, {city}, {state}</h2><br/>
+					<p>If you currently use a cell phone, VoIP phone, you won't be able to collect calls from your inmate as these carriers don't have the service of collect calls. In order to accept collect calls from your inmate facility, <a href={ "/jail-prisons/"+stateName+"/"+path+"/send-inmate-money-commissary"}>you can put money on books at {facilityName}</a> by creating an account with us.. All collect calls are approved by {facilityName} and is billed through your phone carrier company.
+
+	</p>
+					</div>	
+				</div>
+	</section>
+	<section class="correction_section6" id="sid15">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How can inmate call their families and friends in {facilityName},  {city}, {state}</h2><br/>
+					<p>Inmate calling is a service given to all the inmates to get in touch with their friends and families, in order to use this service all inmates must register with the {facilityName}</p>
+					</div>
+				</div>
+	</section>
+	<section class="correction_section5" id="sid16">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to collect calls from Jail in {facilityName},  {city}, {state}</h2><br/>
+					<p>If you currently use a cell phone, VoIP phone, you won't be able to collect calls from your inmate as these carriers don't have the service of collect calls. In order to accept collect calls from your inmate facility, <a href={ "/jail-prisons/"+stateName+"/"+path+"/send-inmate-money-commissary"}>you can put money on books at {facilityName}</a> by creating an account with us.. All collect calls are approved by {facilityName} and is billed through your phone carrier company.
+
+	</p>
+					</div>	
+				</div>
+	</section>
+	<section class="correction_section6" id="sid22">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to call a jail to speak to an inmate in {facilityName},  {city}, {state}</h2><br/>
+					<p>Families and friends can get in touch with their inmate in jail through collect calls. You need to be on your inmate approved telephone list. Note cell phones cannot receive collect calls you need to have an established pre- paid account, contact us to create an account and start communicating with your inmates.</p> <br/>
+
+	<p>Victim Assist knows the importance of communication and connecting families as being the largest, independent calling service provider, we consider it our duty to provide our customers with an affordable, convenient way to be in touch with their inmates and that too at a very affordable rate, gone are the days when you have to think twice before picking up the phone to collect a call to your inmates. Our Customers can also send Photos, Postcards, Letters, Greeting Cards right from their phones, tablet or computer, you can even share online information with your inmates anywhere from the world as long as your inmate is imprisoned in the U.S. As we say ‘it's not just business, it's personal' and we stand by this. Our customers need not to worry if their inmate moves or transfer, you just have to inform us and we will update your inmate's location and you can continue using our service.</p>
+
+	<p>Victim Assist understands the communication barrier which is why our customers don't have to worry, with our inmate calling facility you can stay in touch with your inmate at discounted rates possible. Our primary aim is to make the entire process convenient and efficient by providing a link between you and an inmate. Victim Assist provide you with the best way to stay connected with your loved ones imprisoned in any State, Federal or Country facility, now Collecting calls from correctional facility is just a step away. All you have to do is register with us and start using our inmate calling service at the best discounted rates.</p><br/>
+
+	<p>Click below for the detailed information
+	We believe in serving our customers to the best, if you prefer to speak to one of our executives for any clarification, you can reach us at:
+	Number- 1.800.323.9895
+	Email- support@pigeon.ly</p>
+					</div>
+				</div>
+	</section>
+	<section class="correction_section5" id="sid17">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Frequently Asked Questions</h2><br/>
+						<b>1. What can you take in with you to a prison visit?</b>
+						<p>Generally, you're allowed to keep the following items with you during your visit:</p>
+						
+						<p>
+							<ul>
+								<li>ID/License</li>
+								<li>Glasses</li>
+								<li>Money for vending machine snacks</li>
+								<li>Diaper and bottle if you bring a child</li>
+							</ul>
+						</p>
+						Most other objects, including your keys, must be stored in a locker that will be provided. There are, of course, objects you shouldn't bring, as well, such as:
+						<p>
+							<ul>
+								<li>Medication of any sort</li>
+								<li>Cigarettes or tobacco-related products</li>
+								<li>Anything that can be considered or used as a weapon</li>
+								<li>Illicit substances or materials</li>
+							</ul>
+						</p><br/>
+						<b>2. Do prisons check visitors for warrants?</b>
+		
+		<p>Yes, any person that is visiting a prisoner is liable to be checked and possibly arrested if they have any active warrants.</p><br/>
+						<b>3. Can you hug an inmate during visitation?</b><p></p>
+						 Contact with inmates is generally limited or restricted for various reasons and the safety of others. If you are allowed to hug your loved one it will be a brief hug when you arrive or when your visit is done. Correctional officers will also let you know if you're going over the boundaries as well.
+						<br/><br/>
+						 <b>4. Can you wear jewelry to a prison visit?</b><p></p><br/>
+						Generally yes you're allowed to wear jewelry when visiting your loved one. When you arrive just make sure you take it off before going through the metal detector so it doesn't go off. Now we strongly suggest having your loved one get the rules from the facility so that you don't run into any inconveniences.
+						<br/><br/><b>5. Who's Allowed for Inmate Visitation?</b><p></p><br/>
+						 First things first, all prisons have rules dictating who is actually allowed to visit an inmate during specified hours. In general, this list includes:
+						<p>
+							<ul>
+								<li>Immediate family members</li>
+								<li>Approved relatives</li>
+								<li>Friends (usually an approved list of fewer than 10 individuals)</li>
+								<li>Religious leaders</li>
+								<li>Sponsors</li>
+								<li>Employers</li>
+								<li>Attorneys</li>
+							</ul>
+						</p><br/>
+					<p>On the other hand, there are a number of reasons you may not be allowed to visit a loved one in prison, such as if you have an outstanding warrant, you have an active order of protection against you, you're currently on probation or parole, or you're deemed a security risk. Although individuals who have previously been convicted of felonies may face a tough time being admitted as visitors to a prison, they'll be assessed on a case-by-case basis.</p>
+					</div>	
+				</div>
+	</section>
+	<section class="correction_section6" id="sid19">
+		<div class="container">
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How can inmate call their families and friends in {facilityName},  {city}, {state}</h2>
+					<p>Inmate calling is a service given to all the inmates to get in touch with their friends and families, in order to use this service all inmates must register with the {facilityName}.</p>
+					</div>
+			<div id="reviewShowcaseWidget" style="padding-bottom: 2%;padding-left: 5%;padding-right: 5%;"><div id="reviewShowcaseWidgetInner" class="stjr-widget"></div></div>
+				</div>
+	</section>
+	<section class="correction_section5">
+		<div class="container">
+		
+					<div class="">
+						<h3 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-xl">Disclaimer</h3>
+					<p>You may not use our service or the information it provides to make decisions about consumer credit, employment, insurance, tenant screening, or any other purpose that would require FCRA compliance.</p>
+					</div>
+					
+				</div>
+			
+	</section>
+</div>
+<style>
+    a{
+        color: #00a2ff;
+    }
+
+</style>

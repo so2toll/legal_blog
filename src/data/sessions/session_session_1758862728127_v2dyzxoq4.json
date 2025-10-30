@@ -1,0 +1,42 @@
+{
+  "sessionId": "session_1758862728127_v2dyzxoq4",
+  "agentId": "user_1758862727975",
+  "customerId": "customer_1758862728127",
+  "status": "initiated",
+  "sessionType": "widget",
+  "widgetUserRole": "victim",
+  "formData": {
+    "name": "John Doe",
+    "email": "john@example.com"
+  },
+  "templateId": "widget-template",
+  "docuSeal": {
+    "submissionId": null,
+    "templateId": "widget-template",
+    "signerSlug": null,
+    "signedAt": null,
+    "documentUrl": null
+  },
+  "openReplay": {
+    "sessionId": "or_session_1758862728127_v2dyzxoq4",
+    "projectKey": null,
+    "replayUrl": null,
+    "startTime": "2025-09-26T04:58:48.127Z"
+  },
+  "timestamps": {
+    "created": "2025-09-26T04:58:48.127Z",
+    "started": "2025-09-26T04:58:48.127Z",
+    "completed": null
+  },
+  "metadata": {
+    "clientPortal": "acme-corp",
+    "testMode": true,
+    "widgetUserRole": "victim",
+    "clientId": "demo-client",
+    "clientName": "Demo Client",
+    "clientOrigin": "http://localhost:3000",
+    "ipAddress": null,
+    "userAgent": null,
+    "device": null
+  }
+}

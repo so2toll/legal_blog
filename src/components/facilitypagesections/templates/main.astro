@@ -1,0 +1,46 @@
+---
+import Corrections from './corrections.astro'
+import Visitation from './visitation.astro'
+import Write from './write.astro'
+import PhoneCall from './phone-call.astro'
+import Send from './send.astro'
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+  test?:string
+  slug?:string
+}
+
+// const { data, type, statePath, slug  } = Astro.props as any
+const {data, type, slug } = Astro.props as any
+const {updatedOn, title, path, facilityName,   stateName, city, county, state, facility, address, phone} = data.props.post
+
+// console.log(6666624352345, data);
+
+---
+<div class="mt-4 text-xl text-gray-600 dark:text-gray-300 lg:mx-auto opener">
+  {type == 'facility-page' && slug=='' || slug==undefined ?  <Corrections data={data} statePath={facility as string} 
+  type={"facility-page"} stateName={state as string} facilityName={data.props.post.title as string}  type={type}  /> : '' }
+  {type == 'facility-page' && slug=='write-a-prisoner' ?  <Write data={data} statePath={facility as string} 
+  type={"facility-page"} stateName={state as string} facilityName={data.props.post.title as string}  type={type}  />: '' }
+  {type == 'facility-page' && slug=='send-inmate-money-commissary' ?  <Send data={data} statePath={facility as string} 
+  type={"facility-page"} stateName={state as string} facilityName={data.props.post.title as string}  type={type}  />: '' }
+  {type == 'facility-page' && slug=='visitation' ?  <Visitation data={data} statePath={facility as string} 
+  type={"facility-page"} stateName={state as string} facilityName={data.props.post.title as string}  type={type}  />: '' }
+  {type == 'facility-page' && slug=='inmate-calling' ?  <PhoneCall data={data} statePath={facility as string} 
+  type={"facility-page"} stateName={state as string} facilityName={data.props.post.title as string}  type={type}  />: '' }
+  
+</div>    
+
+<style>
+ 
+.opener {
+    text-align: left;
+}
+</style>

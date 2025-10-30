@@ -1,0 +1,225 @@
+---
+// Victim Assist — Homepage (Astro + Tailwind)
+// Single-file .astro component. Assumes Tailwind is configured in the project.
+// Replace helpline/email with real values. Add server-side data fetching as needed.
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Victim Assist — Local resources, guides, and how-to help</title>
+    <meta name="description" content="Find local victim resources, learn how to file a police report, and discover if you qualify for victim compensation. Confidential guidance and step-by-step help." />
+  </head>
+
+  <body class="antialiased text-gray-900 bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-4">
+            <a href="/" class="inline-flex items-center gap-3">
+              <svg class="w-9 h-9 text-blue-700" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M12 2L3 7v6c0 5 3.6 9.4 9 11 5.4-1.6 9-6 9-11V7l-9-5z" fill="currentColor" />
+                <path d="M8 11h8v7H8z" fill="#fff" />
+              </svg>
+              <span class="text-lg font-semibold tracking-tight">Victim Assist</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
+              <a href="#how" class="hover:text-blue-700">How it works</a>
+              <a href="#resources" class="hover:text-blue-700">Resources</a>
+              <a href="#cities" class="hover:text-blue-700">Cities</a>
+              <a href="#about" class="hover:text-blue-700">About</a>
+            </nav>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a href="#get-help" class="hidden md:inline-block px-4 py-2 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700">Get Help</a>
+            <button aria-label="Open menu" class="md:hidden p-2 rounded-md hover:bg-gray-100">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-12 pb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="space-y-6">
+              <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">Help for victims — fast, clear, local.</h1>
+              <p class="text-gray-600 max-w-xl">Find local resources, learn how to file a police report, and discover whether you qualify for victim compensation. Actionable steps, simple language, and confidential support.</p>
+
+              <!-- Search form -->
+              <form class="flex w-full max-w-xl gap-2 mt-2" on:submit preventDefault>
+                <label for="city" class="sr-only">Enter city or ZIP</label>
+                <input id="city" name="city" placeholder="Enter city or ZIP (e.g., Atlanta, GA)" class="flex-1 rounded-md border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <button class="px-4 py-3 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700">Search</button>
+              </form>
+              <p class="text-sm text-gray-500 mt-2">Or <a href="#get-help" class="text-blue-600 underline">contact an advocate</a> for immediate help.</p>
+
+              <!-- Features -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
+                <div class="p-4 bg-white rounded-lg shadow-sm">
+                  <h4 class="text-sm font-semibold">How to file a report</h4>
+                  <p class="text-xs text-gray-500 mt-1">Step-by-step guides for online and in-person reports.</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-sm">
+                  <h4 class="text-sm font-semibold">Check eligibility</h4>
+                  <p class="text-xs text-gray-500 mt-1">See what expenses are covered and how to apply.</p>
+                </div>
+                <div class="p-4 bg-white rounded-lg shadow-sm">
+                  <h4 class="text-sm font-semibold">Find local services</h4>
+                  <p class="text-xs text-gray-500 mt-1">Advocates, shelters, and counseling near you.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA card -->
+            <div>
+              <div class="rounded-xl bg-white shadow-md p-6">
+                <div class="flex gap-4 items-start">
+                  <svg class="w-12 h-12 text-blue-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <path d="M12 2L3 7v6c0 5 3.6 9.4 9 11 5.4-1.6 9-6 9-11V7l-9-5z" fill="#1e3a8a"/>
+                    <rect x="8" y="11" width="8" height="7" fill="#fff" rx="1" />
+                  </svg>
+                  <div>
+                    <h3 class="text-lg font-semibold">Need urgent support?</h3>
+                    <p class="text-gray-600 text-sm mt-1">Call the national helpline or connect with a local advocate for step-by-step support.</p>
+                    <div class="mt-4 flex flex-col sm:flex-row gap-3">
+                      <a id="get-help" href="#" class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700">Get Help Now</a>
+                      <a href="#resources" class="inline-flex items-center justify-center px-4 py-2 rounded-md bg-gray-100 text-blue-700 text-sm font-medium hover:bg-gray-200">See Resources</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 text-sm text-gray-500">
+                <p><strong>Confidential.</strong> We do not share your information without consent. For official applications, contact your state victim compensation office.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guides -->
+      <section class="max-w-6xl mx-auto px-6 lg:px-8 py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <article class="bg-white p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold">How to apply for victim compensation</h3>
+            <p class="text-sm text-gray-600 mt-2">A simple checklist of documents, timelines, and tips to avoid common mistakes.</p>
+            <a href="#" class="mt-4 inline-block text-blue-600">Read guide →</a>
+          </article>
+
+          <article class="bg-white p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold">What to do after an assault</h3>
+            <p class="text-sm text-gray-600 mt-2">Immediate steps, medical care options, and preserving evidence.</p>
+            <a href="#" class="mt-4 inline-block text-blue-600">Read guide →</a>
+          </article>
+
+          <article class="bg-white p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg font-semibold">Financial help after a crime</h3>
+            <p class="text-sm text-gray-600 mt-2">Explore covered expenses, funeral assistance, and lost wages support.</p>
+            <a href="#" className="mt-4 inline-block text-blue-600">Read guide →</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="bg-white border-t">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4">
+              <p class="text-gray-700 italic">“Victim Assist helped me understand what I could claim and how to get the application started. The team was kind and practical.”</p>
+              <p class="mt-3 text-sm font-semibold">— Sarah, Atlanta, GA</p>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-700 italic">“Clear steps and local numbers — got me connected to a counselor and applied for compensation within a week.”</p>
+              <p class="mt-3 text-sm font-semibold">— Marcus, Phoenix, AZ</p>
+            </div>
+            <div class="p-4">
+              <p class="text-gray-700 italic">“The checklist made the whole process less overwhelming. Strongly recommend for anyone navigating claims.”</p>
+              <p class="mt-3 text-sm font-semibold">— Priya, New York, NY</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- City Grid -->
+      <section id="cities" class="max-w-6xl mx-auto px-6 lg:px-8 py-10">
+        <h2 class="text-xl font-semibold mb-4">Find resources and application pages for your city</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Atlanta%2C%20GA">Atlanta, GA</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Austin%2C%20TX">Austin, TX</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Chicago%2C%20IL">Chicago, IL</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Cleveland%2C%20OH">Cleveland, OH</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Dallas%2C%20TX">Dallas, TX</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Denver%2C%20CO">Denver, CO</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Houston%2C%20TX">Houston, TX</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Los%20Angeles%2C%20CA">Los Angeles, CA</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Miami%2C%20FL">Miami, FL</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Minneapolis%2C%20MN">Minneapolis, MN</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/New%20York%2C%20NY">New York, NY</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Phoenix%2C%20AZ">Phoenix, AZ</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Portland%2C%20OR">Portland, OR</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/San%20Diego%2C%20CA">San Diego, CA</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/San%20Francisco%2C%20CA">San Francisco, CA</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Seattle%2C%20WA">Seattle, WA</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Tampa%2C%20FL">Tampa, FL</a>
+          <a class="block p-3 bg-white rounded-md border border-gray-100 hover:shadow" href="/city/Washington%2C%20DC">Washington, DC</a>
+        </div>
+
+        <div class="mt-6 text-sm text-gray-500">Can’t find your city? <a href="#contact" class="text-blue-600 underline">Tell us</a> — we’ll add it.</div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-12 bg-white border-t">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h4 class="text-sm font-semibold">Victim Assist</h4>
+            <p class="text-sm text-gray-600 mt-2">Practical guidance and local resources for people impacted by crime. Not a government agency. For official applications, contact your state victim compensation office.</p>
+          </div>
+
+          <div>
+            <h5 class="text-sm font-semibold mb-3">Quick links</h5>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="#how" class="hover:text-blue-700">How to apply</a></li>
+              <li><a href="#resources" class="hover:text-blue-700">Resources</a></li>
+              <li><a href="#cities" class="hover:text-blue-700">Cities</a></li>
+              <li><a href="#faq" class="hover:text-blue-700">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 class="text-sm font-semibold mb-3">Contact</h5>
+            <p class="text-sm text-gray-600">Email: <a href="mailto:help@victimassist.org" class="text-blue-600">help@victimassist.org</a></p>
+            <p class="text-sm text-gray-600 mt-2">National helpline: <strong>1-800-XXX-XXXX</strong></p>
+          </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 py-4 text-xs text-gray-500">© 2025 Victim Assist — Privacy · Terms</div>
+      </footer>
+    </main>
+
+    <script type="module">
+      // Small client-side behavior: quick nav for search input (progressive enhancement)
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+        if (!form) return;
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const q = document.getElementById('city').value.trim();
+          if (!q) return;
+          // In a full app you'd route to a proper city page. For now, naive encoding:
+          const slug = encodeURIComponent(q);
+          window.location.href = `/city/${slug}`;
+        });
+      });
+    </script>
+  </body>
+</html>

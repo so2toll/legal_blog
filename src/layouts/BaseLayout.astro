@@ -1,0 +1,31 @@
+---
+import { SEO } from 'astro-seo';
+import siteData from '../constants/siteData.json';
+
+const { seo = {} } = Astro.props;
+const merged = {
+  ...siteData.default,
+  ...seo,
+  openGraph: {
+    basic: {
+      ...siteData.default.openGraph.basic,
+      ...seo.openGraph?.basic,
+      url: Astro.url.href
+    },
+    optional: siteData.default.openGraph.optional
+  },
+  twitter: {
+    ...siteData.default.twitter,
+    ...seo.twitter
+  }
+};
+---
+
+<html lang="en">
+  <head>
+    <SEO {...merged} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

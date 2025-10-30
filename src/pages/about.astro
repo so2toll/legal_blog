@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../constants/siteData.json';
+
+const seo = siteData.pages.about;
+---
+
+<BaseLayout seo={seo}>
+  <h1>About Victim Assist</h1>
+  <p>Learn about our mission and journey.</p>
+</BaseLayout>

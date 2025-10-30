@@ -1,0 +1,38 @@
+{
+    "default": {
+      "title": "Victim Assist Themes",
+      "description": "Victim Assist.",
+      "openGraph": {
+        "basic": {
+          "title": "Victim Assist ",
+          "type": "website",
+          "image": "https://VictimAssist.com/og-default.jpg",
+          "url": ""
+        },
+        "optional": {
+          "siteName": "Victim Assist Themes"
+        }
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "site": "@Victim Assistthemes",
+        "creator": "@Victim Assistthemes"
+      },
+      "noindex": false,
+      "nofollow": false
+    },
+    "pages": {
+      "about": {
+        "title": "About - Victim Assist Themes",
+        "description": "About Victim Assist Themes and what drives us.",
+        "openGraph": {
+          "basic": {
+            "title": "About Victim Assist Themes",
+            "type": "website",
+            "image": "https://Victim Assistthemes.com/og-about.jpg",
+            "url": ""
+          }
+        }
+      }
+    }
+  }

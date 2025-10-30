@@ -1,0 +1,205 @@
+---
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+  test?:string
+  slug?:string
+}
+
+
+let { type } = Astro.props
+
+let content = { header: '' as string | undefined, description: '', button: '', img:''  }
+
+
+switch (type) {
+  case 'how-it-works':
+    content = {
+      header: 'How it Works',
+      description:
+        'Our goal is to make sure you always have everything you need to support your incarcerated loved one. Here’s how it all works.',
+        button:'Get Started', 
+        img:'https://iili.io/HxCsNzx.webp'  
+    }
+    break
+  case 'send-money-product-page':
+    content = {
+      header: 'Send Inmates Money Online',
+      description:
+        'Fund your inmate’s commissary or inmate trust account using your credit, debit, prepaid or your bank account. Add to an inmate’s books today.',
+      button:'Try Easy Pay', 
+      img:'' 
+    }
+    break
+  case 'send-pictures-product-page':
+    content = {
+      header: 'Send Pictures to Inmates in Jail or Prison',
+      description:
+        'Send photos from your phone or computer to your inmate. Shipping and handling is included with your membership.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'send-articles-product-page':
+    content = {
+      header: 'Send Articles to Inmates',
+      description:
+        'Send articles from your phone or computer to your inmate. Shipping & handling is included with your membership.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'send-greeting-cards-product-page':
+    content = {
+      header: 'Send Greeting Cards to Inmates',
+      description:
+        'Send greeting cards for birthdays, holidays, and more all from your phone or computer to your inmate. Shipping & handling is included with your membership.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'send-postcards-product-page':
+    content = {
+      header: 'Send Postcards to Inmates',
+      description:
+        'Send postcards from your phone or computer to your inmate. Pay for shipping & handling for additional postcards you send.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'inmate-calling-product-page':
+    content = {
+      header: 'Inmate Phone Calls',
+      description:
+        'Your inmate will never miss a moment again, get your best rate phone number, today!',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'write-a-prisoner-product-page':
+    content = {
+      header: 'Write a Prisoner',
+      description:
+        'Send mail to jail and at any county, state, or federal correctional facility. We take all of the work of packaging letters for you – making it a quick, easy process. Write an inmate right from your phone, tablet or computer.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'prisonwives':
+    content = {
+      header: 'Inmates aren’t the only ones who need support.',
+      description:
+        'Our Facebook group is a free support community group for prison wives, girlfriends, family, and friends of prisoners. It’s a place to come together and share with other people who already know exactly what you’re going through.',
+        button:'Join Group', 
+        img:'' 
+    }
+    break
+    
+  case 'about':
+    content = { header: 'byyebye', description: '', button:'', img:''  }
+    break
+  case 'pricing':
+    content = {
+      header: 'One low price, many ways to connect',
+      description:
+        'Let your love language show. Send unlimited photos, letters, postcards, greeting cards, and web articles to your loved one. All for one low price.',
+        button:'Get Started', 
+        img:'https://iili.io/HxCsNzx.webp' 
+    }
+    break
+
+  default:
+    content = { header: 'ssssbyyebye', description: '', button:'', img:''  }
+    break
+}
+
+// console.log("this the final features: ", type,slug,finalFeatures)
+---
+
+<div class="bg-gray-100 dark:bg-gray-800" style="text-align: center;  ">
+
+   
+    <div class="container mx-auto px-4 py-12 lg:py-24">
+        <div class="flex flex-col lg:flex-row items-center justify-between" style=" margin-left: 10%; margin-right: 10%;"
+    >
+        <div class="w-full lg:w-1/1 mb-8 lg:mb-0">
+          <div style ="padding-bottom: 3%; display: inline-flex;">
+                <img src="/images/resmooshed-easypay-logo.png" />
+              </div>
+                <h2 class="text-4xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+The easy way to pay, by Victim Assist
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                  You can now fund an Inmate’s Commissary or Calling Account with your Victim Assist Wallet. There’s no app to download and you can use the same credit, debit, or prepaid cards you already have. 
+
+                  Our built-in digital assistant ensures your inmate gets the funds you send quickly at the lowest rates possible.
+                                    
+                </p>
+                
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="bg-white dark:bg-white" style="text-align: center;  ">
+
+   
+      <div class="container mx-auto px-4 py-12 lg:py-24">
+          <div class="flex flex-col lg:flex-row items-center justify-between" style=" margin-left: 10%; margin-right: 10%;"
+      >
+          <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+              <img width="300px" src="/images/2021_Phone_Commissary-1024x1024.png" />
+          </div>
+          <div class="w-full lg:w-1/2 mb-8 lg:mb-0" style="text-align:right;">
+                  <h2 class="text-4xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+                    How to use Easy Pay
+                  </h2>
+                  <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                    Step 1: Search and find your inmate with our inmate locator tool.
+                    <br /><br />
+                    Step 2: Select what type of payment you’d like to make ie. phone or commissary
+                    <br /><br />
+                    Step 3: Authorize the payment method you’d like to use and we’ll take care of the rest.
+                  </p>
+              
+              </div>
+            </div>
+          </div>
+      </div>
+
+    <div class="bg-gray-100 dark:bg-gray-800" style="text-align: center;">
+
+      <div class="container mx-auto px-4 py-12 lg:py-24">
+        <div class="flex flex-col lg:flex-row items-center justify-between" style=" margin-left: 10%; margin-right: 10%;"
+    >
+      
+        <div class="w-full lg:w-1/2 mb-8 lg:mb-0" style="text-align:left;">
+                <h2 class="text-4xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+                  We’ll help you get setup
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                  Think of us as your personal assistant. We understand at times how overwhelming all of this can be, and we’re here to help you through the entire process.
+<br/><br/>
+                  First, we’ll help you locate your inmate. Then we’ll help you establish an account with your inmate phone provider or whatever prison vendor that is used at your
+                   inmate’s prison or jail. (If any.) We’ll confirm the fees they charge for payments and/or deposits and answer any questions you have. Our customer 
+                   support team is here for you and will do everything we can to help. Trust us to help with all of your needs to help you stay connected with your incarcerated loved one.
+                </p>
+    
+            </div>
+            <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+              <img width="300px" src="/images/2021_Providers-1024x1024.png" />
+          </div>
+          </div>
+        </div>
+            
+        </div>
+
+        
+
+            

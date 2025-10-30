@@ -1,0 +1,61 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/blog"
+    },
+    {
+      "name": "About",
+      "url": "/blog/about"
+    },
+    {
+      "name": "Contact",
+      "url": "/blog/contact"
+    },
+    {
+      "name": "Pages",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Authors",
+          "url": "/blog/authors"
+        },
+        {
+          "name": "Categories",
+          "url": "/blog/categories"
+        },
+        {
+          "name": "Tags",
+          "url": "/blog/tags"
+        },
+        {
+          "name": "Elements",
+          "url": "/blog/elements"
+        },
+        {
+          "name": "Privacy Policy",
+          "url": "/blog/privacy-policy"
+        }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "name": "About",
+      "url": "/blog/about"
+    },
+    {
+      "name": "Contact",
+      "url": "/blog/contact"
+    },
+    {
+      "name": "Elements",
+      "url": "/blog/elements"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/blog/privacy-policy"
+    }
+  ]
+}

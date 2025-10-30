@@ -1,0 +1,31 @@
+---
+
+
+const {features } = Astro.props
+
+---
+<div class="mt-10">
+    <dl
+      class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10"
+    >
+      { 
+        features.map((feature: { icon: string | null | undefined; name: unknown; description: unknown; }) => (
+          <div class="relative">
+            <dt>
+              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-cyan-500 dark:bg-cyan-400 text-white dark:text-black">
+                  <img src={feature.icon} />
+              </div>
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">
+                {feature.name}
+              </p>
+            </dt>
+            <dd class="mt-2 ml-16 text-base text-gray-600 dark:text-gray-400">
+              {feature.description}
+            </dd>
+          </div>
+        ))
+      }
+
+<!-- {featMap()} -->
+    </dl>
+  </div>

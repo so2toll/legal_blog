@@ -1,0 +1,223 @@
+---
+import type { MarkdownInstance } from 'astro'
+import type { Frontmatter } from '../../config'
+import BlogCard from '../../components/blogcard.astro'
+import PaginateControl from '../../components/paginatecontrol/paginatecontrol.astro'
+// import sect from '../../components/facilitypagesections/body-sections.astro'
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+  test?:string,
+  slug?:string
+
+}
+
+const { data, type  } = Astro.props as any
+// const {updatedOn, title, path, facilityName, stateName} = data.props.post
+const {updatedOn, title, path, facilityName, slug,   stateName, city, county, state, facility, address, phone} = data.props.post
+
+let content={header:'' as string | undefined, description:''};
+if ( data != undefined) {
+  switch (type) {
+    case 'how-it-works':
+      content = {header:"How it Works "+updatedOn+" sss", description: "Our goal is to make sure you always have everything you need to support your incarcerated loved one. Here's how it all works."}
+      break;
+    case 'about':
+     content = {header:"byyebye", description:''}
+     break;
+    case 'pricing':
+     content = {header:"One low price, many ways to connect", description:'Let your love language show. Send unlimited photos, letters, postcards, greeting cards, and web articles to your loved one. All for one low price.'}
+     break;
+     case 'state-page':
+      // let data =data 
+     content = {header: stateName, description:'asbringing it to you',  }
+     break;
+     case 'facility-page':
+      // let data =data 
+     content = {header:"", description: "", }
+     break;
+    default:
+      content = {header:"ssssbyyebye", description:''}
+      break;
+  }
+}
+---
+<div class="container ">
+  <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight
+   text-gray-900 dark:text-gray-100 sm:text-4xl" style="text-align: center;">
+      <span style="margin-left:20px;"> {facilityName} Correctional Faciliites {content.header} </span> 
+      </p> 
+  <br />
+ 
+  <div class="mt-10">
+    <dl
+      class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10"
+    >
+      {
+          <div class="relative bg-indigo-500 dark:bg-cyan-400" style="padding-right: 70px; padding-bottom: 30px;  padding-top: 30px;">  
+            <dd class="mt-2 ml-16 text-base text-white dark:text-white">
+                {facilityName} 
+              
+              <ul class="main-facility-info">  
+                <li>    
+                    &bull; City: {city} 
+                    </li>
+                    <li>
+                        &bull; County: {county} 
+
+                    </li>     
+                    <li>
+                        &bull; State: {state} 
+                    </li>
+                    <li>
+                        &bull; Facility: {facilityName} 
+                    </li>
+                    <li>
+                      &bull; Locator: Use Our Free Inmate Locator
+                    </li>
+                    <li>
+                        &bull; Address: {address} 
+                    </li>
+                    <li>
+                        &bull; Phone: {phone} 
+                    </li>
+                </ul>
+            </dd>
+          </div>
+
+          <div class="relative" >
+            <h3 style="margin-left: -5%">
+              <p class="ml-16 text-lg leading-6 font-medium text-gray-900 dark:text-gray-200">
+                
+                {type == 'facility-page' && slug=='' || slug==undefined  ? facilityName + " Inmate Search & Locator" : 'Table of Contents'} 
+              </p>
+            </h3>
+            <div class="mt-2 ml-16 text-base text-gray-600 dark:text-gray-400" style="margin: 5%">
+             
+              {type == 'facility-page' && slug=='' || slug==undefined ?  
+              <p
+        class="sm:text-lg text-gray-600 dark:text-gray-300 lg:mx-auto opener"
+      >Incarceration can be brutal on families and friends as well as inmates. State prison lookups 
+              can vary depending on locale, and inmates can often be moved from one location to another within
+               the {state} Department of Corrections. That's why we've created the Victim Assist Prison Locator Service 
+               for fast and free inmate search.</p> <br/>
+
+               <p
+        class="sm:text-lg text-gray-600 dark:text-gray-300 lg:mx-auto opener"
+      >Our mission at Victim Assist is to connect inmates and families with 
+               affordable and easy-to-use tools. Our Inmate Locator can help you find your loved ones and even 
+               update you if an inmate moves to another location. Register with Victim Assist for free to find your 
+               loved ones today.</p>  <br/>
+               
+               <p
+        class="sm:text-lg text-gray-600 dark:text-gray-300 lg:mx-auto opener"
+      > Families can also search for their inmates on 
+               the {facilityName} official website. To use this search, you'll need an 
+               inmate ID, provided when the inmate is assigned to a facility. Other search tools include 
+               the {state} state site and the Bureau of Prisons site.</p>
+               : 
+               '' }
+               
+					<ul  class="mt-4 max-w-2xl text-l text-cyan-600 dark:text-gray-300 lg:mx-auto opener">{type == 'facility-page' && slug=='write-a-prisoner' ?  
+						<li><a href="#sid1"> &bull; What is a Jail Mail</a></li>
+						<li><a href="#sid2"> &bull; How to Send Mail to an Inmate at {facilityName}</a></li>
+						<li><a href="#sid3"> &bull; How to Find Someone in Jail</a></li>
+						<li><a href="#sid4"> &bull; Jail Mail - {facilityName}</a></li>
+						<li><a href="#sid5"> &bull; Smart Jail Mail - {facilityName}</a></li>
+						<li><a href="#sid6"> &bull;Corrlinks at {facilityName}</a></li>
+						<li><a href="#sid7"> &bull; Active Inmates at {facilityName}</a></li>
+						<li><a href="#sid8"> &bull; What to Write to Someone in Jail - {facilityName}</a></li>
+						<li><a href="#sid9"> &bull; How to Email an Inmate Online - {facilityName}</a></li>
+						<li><a href="#sid10"> &bull; When Do Inmates Receive Mail at {facilityName}</a></li>
+						<li><a href="#sid11"> &bull; {facilityName} Mail Rules</a></li>
+						<li><a href="#sid12"> &bull; Jail Mail App</a></li>
+						<li><a href="#sid13"> &bull; Postcard Mail</a></li>
+							<li><a href="#sid14"> &bull; Inmate Mail Example</a></li>
+					: '' }
+  {type == 'facility-page' && slug=='send-inmate-money-commissary' ?  
+						<li><a href="#sid1">  &bull; Trust Account at {facilityName}</a> </li>
+						<li><a href="#sid2">  &bull; Commissary Items and Online Fees</a></li>
+						<li><a href="#sid3">  &bull; MoneyGram Transfer to {facilityName}</a></li>
+						<li><a href="#sid4">  &bull; Offender Connect at {facilityName}</a></li>
+						<li><a href="#sid5">  &bull; Inmate Commissary at {facilityName}</a></li>
+						<li><a href="#sid6">  &bull; Money On Books with TouchPay</a> </li>
+						<li><a href="#sid7">  &bull; Contact Us</a></li>
+					: '' }
+  {type == 'facility-page' && slug=='visitation' ?  <ul>
+    <li><a href="#sid1">  &bull; Visitation</a></li>
+							<li><a href="#sid2">  &bull; What to Wear When Visiting Inmate</a></li>
+							<li><a href="#sid3">  &bull; What can I Bring to Visit an Inmate</a></li>
+							<li><a href="#sid5">  &bull; Visitation Hours</a></li>
+							<li><a href="#sid5">  &bull; General Visitation List</a></li>
+							<li><a href="#sid6">  &bull; What are the Visitation Hours</a></li>
+							<li><a href="#sid7">  &bull; How to schedule a Visit</a></li>
+							<li><a href="#sid8">  &bull; What are the requirements to visit your inmate</a></li>
+							<li><a href="#sid9">  &bull; How to make an appointment to visit your inmate</a></li>
+							<li><a href="#sid10">  &bull; How to book a prison visit online</a></li>
+							<li><a href="#sid11">  &bull; How to connect with your inmate through video visit</a></li>
+							<li><a href="#sid12">  &bull; How to connect through jail video visitation</a></li>
+							<li><a href="#sid13">  &bull; Phone Calls</a></li>
+							<li><a href="#sid14">  &bull; How to collect calls from Jail</a></li>
+							<li><a href="#sid15">  &bull; How can inmate call their families and friends</a></li>
+							<li><a href="#sid22">  &bull; How to call a jail to speak to an inmate</a></li>
+							<li><a href="#sid17">  &bull; FAQs</a></li>
+						<li><a href=".">Correctional Facility Information</a></li>
+					
+						<li> <a href="#sid1">View More Facility Information</a></li>
+            </ul>: '' }
+
+  {type == 'facility-page' && slug=='inmate-calling' ? 
+						<li><a href="#sid0"> &bull; Inmate Calling to {facilityName}</a></li>
+						<li><a href="#sid1"> &bull; Receiving Inmate Phone Calls From {facilityName}</a></li>
+						<li><a href="#sid2"> &bull; Adding Money to an Inmate's Phone Account</a></li>
+						<li><a href="#sid3"> &bull; How to Accept Collect Calls from {facilityName}</a></li>
+						<li><a href="#sid4"> &bull; Unlimited Inmate Calls to {facilityName}</a></li>
+						<li><a href="#sid5"> &bull; Add Calling Money with Global Tel Link</a></li>
+						<li><a href="#sid6"> &bull; Corrlinks at {facilityName}</a></li>
+						<li><a href="#sid7"> &bull; Inmate Phone Cards</a></li>
+						<li><a href="#sid8"> &bull; Prepaid Inmate Calls</a></li>
+
+					: ''
+ }</ul>
+            </dd>
+          </div>        
+      }
+    </dl>
+  </div>
+  <div>
+
+
+  </div>
+</div>
+  
+
+  <style>
+    .container {
+         margin: 0 auto;
+      padding: 50px 0 0;
+    
+      width: 100%;
+    }
+    .main-facility-info{
+        padding: 0;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #fff;
+    }
+    .main-facility-info li {
+  
+  margin-bottom: 20px;
+}
+
+ul li::marker {
+  font-size: 150%;
+  color: lightgreen;
+}
+
+  </style>

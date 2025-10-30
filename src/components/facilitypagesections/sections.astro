@@ -1,0 +1,235 @@
+---
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+  test?:string
+  slug?:string
+}
+
+const {data } = Astro.props as any
+let { type,  } = Astro.props
+let  statePath  = Astro.params.state as string
+// let homeUrl = {{<a href="/">Home</a>}}
+
+
+const {updatedOn, title, path, facilityName,    stateName, city, county, state, facility, address, phone, slug} = data.props.post
+
+
+let finalFeatures = [] as any
+let features = [{ name: '', description: '', icon: '' }]
+
+switch (type) {
+  
+ 
+  case 'facility-page':
+    switch (slug) {  
+    
+      case '' || undefined:
+           
+          features  = [{ name: facilityName, description: `  ${facilityName} is located in ${state}. Every correctional 
+          facility has its own rules on visitation, commissary, and mail.  The ${facilityName} also has guidelines to 
+          follow. Before connecting with a loved one here, you can find them using a free inmate search for ${facilityName}. 
+          Victim Assist provides a free lookup and other inmate services.`, icon: 'Search for an Inmate' }]
+
+              finalFeatures.push(features);
+
+          break;
+        
+      case 'send-inmate-money-commissary':
+          
+          // console.log("this slug is here: blank", slug)
+          features  = [{ name: facilityName, description: `  How to send money to ${facilityName}  is subject to
+              ${county}  rules. Each correctional facility has its own rules on
+              visitation, commissary, and mail. 
+              
+              Before connecting with a loved one
+              here, you can find them using a free inmate locator. Victim Assist helps you
+              add money to a trust account at ${facilityName} 
+              and other services.`, icon: 'Send Money to an Inmate at '+facilityName+' ' }]
+
+              // console.log("this slug is here: blank", features)
+              finalFeatures.push(features);
+          break;
+          case 'write-a-prisoner':
+          
+          // console.log("this slug is here: blank", slug)
+          features  = [{ name: facilityName, description: `  How to write to ${facilityName}  is subject to
+              ${county}  rules. Each correctional facility has its own rules on
+              visitation, commissary, and mail. 
+              
+              Before connecting with a loved one
+              here, you can find them using a free inmate locator. Victim Assist helps you
+              add money to a trust account at ${facilityName} 
+              and other services.`, icon: 'Write an Inmate at '+facilityName+' ' }]
+
+              // console.log("this slug is here: blank", features)
+              finalFeatures.push(features);
+          break;
+
+          case 'inmate-calling':
+          
+          // console.log("this slug is here: blank", slug)
+          features  = [{ name: facilityName, description: `  How to phone call to ${facilityName}  is subject to
+              ${county}  rules. Each correctional facility has its own rules on
+              visitation, commissary, and mail. 
+              
+              Before connecting with a loved one
+              here, you can find them using a free inmate locator. Victim Assist helps you
+              add money to a trust account at ${facilityName} 
+              and other services.`, icon: 'Connect with an Inmate at '+facilityName+' ' }]
+
+              // console.log("this slug is here: blank", features)
+              finalFeatures.push(features);
+          break;
+        case 'visitation':
+          
+          // console.log("this slug is here: blank", slug)
+          features  = [{ name: facilityName, description: `  Before visiting your inmate check all the rules you need to follow. You can find an inmate 
+          at ${facilityName}  , using the Victim Assist Inmate Search 
+          if you need help before visitng. After the visitor has been approved by the 
+          correctional facility they need to check with their inmate on what days they are allowed to visit.
+              
+              Before connecting with a loved one
+              here, you can find them using a free inmate locator. Victim Assist helps you
+              add money to a trust account at ${facilityName} 
+              and other services.`, icon: 'Connect with an Inmate at '+facilityName+' ' }]
+
+              // console.log("this slug is here: blank", features)
+              finalFeatures.push(features);
+          break
+      //       console.log("and the slug in facility page type is notfound: ", slug)
+
+      // }
+      default:
+      features  = [{ name: facilityName, description: `  ${facilityName} is located in ${state}. Every correctional 
+          facility has its own rules on visitation, commissary, and mail.  The ${facilityName} also has guidelines to 
+          follow. Before connecting with a loved one here, you can find them using a free inmate search for ${facilityName}. 
+          Victim Assist provides a free lookup and other inmate services.`, icon: 'Search for an Inmate' }]
+        finalFeatures.push(features);
+        break
+    }
+  default:
+    features = [{ name: '', description: '', icon: 'Search for Inmate' }]
+    finalFeatures.push(features);
+    break
+}
+
+// console.log('this is the slug, ', slug)
+// console.log("this the final features: ", type,slug,finalFeatures)
+---
+
+<div class="" style="text-align: center;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <h1
+        class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl"
+      >
+      {facilityName}
+      </h1> 
+      <p
+        class="text-base text-cyan-800 dark:text-cyan-300 font-semibold tracking-wide uppercase"
+      >
+        Updated on {updatedOn}
+      </p>
+
+      <nav aria-label="Breadcrumb" class="breadcrumb mt-4 max-w-2xl text-base tracking-wide text-gray-900 dark:text-gray-100 lg:mx-auto">
+        <ul itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemprop="item" itemid="https://victim-assist.com/" href="/" ><span itemprop="name">Home</span></a> 
+              <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemprop="item" itemid="https://victim-assist.com/jail-prisons/" href="/jail-prisons/"><span itemprop="name">Jails and Prison</span></a> 
+              <meta itemprop="position" content="2" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemprop="item" itemid="https://victim-assist.com/jail-prisons/state/" href={ "/jail-prisons/" + statePath + "/1/"}  ><span itemprop="name">{state}</span></a> 
+              <meta itemprop="position" content="3" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a itemprop="item" itemid="https://victim-assist.com/jail-prisons/facility/" href={ "/jail-prisons/"+statePath+"/"+path+"/"} ><span itemprop="name">{facilityName}</span> </a> 
+              <meta itemprop="position" content="4" />
+            </li>
+            
+            
+        </ul>
+    </nav>
+    
+      <p
+        class="mt-4 max-w-2xl sm:text-lg text-gray-600 dark:text-gray-300 lg:mx-auto opener"
+      >
+       {finalFeatures[0][0].description}
+       <a href="/"></a>
+           
+      </p>
+
+      
+    </div>
+
+    <div class="rounded-md shadow mt-4 max-w-2xl text-xl text-gray-600 dark:text-gray-300 lg:mx-auto opener">
+        <a
+          href="https://data3d.io/search"
+          class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-pink-600 dark:text-black dark:bg-cyan-300 dark:hover:bg-pink-300 md:py-4 md:text-lg md:px-10"
+          target="_blank"
+        >
+        {finalFeatures[0][0].icon}
+        </a>
+       
+      </div>
+    
+ <br />
+
+  <ul class="related mt-4 max-w-2xl text-base tracking-wide text-cyan-600 dark:text-gray-100 lg:mx-auto">
+  <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" style="padding-right:2%" ><a itemprop="item" href={ "/jail-prisons/"+statePath+"/"+path+"/visitation/"} >Visitation</a></li> |
+  <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" style="padding-right:2%" ><a itemprop="item" href={ "/jail-prisons/"+statePath+"/"+path+"/write-a-prisoner/"} >Write a Prisoner</a></li> |
+  <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" style="padding-right:2%" ><a itemprop="item" href={ "/jail-prisons/"+statePath+"/"+path+"/send-inmate-money-commissary/"} >Send Money</a></li> |
+  <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" style="padding-right:2%" ><a itemprop="item" href={ "/jail-prisons/"+statePath+"/"+path+"/inmate-calling/"} >Inmate Calling </a></li>
+  <!-- <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href=".">{facilityName} </a></li> -->
+  <!-- {slug ==undefined || slug == '' ? '': <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href={"./" ,state}   >{facilityName} </a></li>} -->
+  
+</ul>
+<br/>
+ <br/>
+  </div>
+</div>
+
+<style>
+    .breadcrumb {
+    padding: 0 .5rem;
+}
+
+.breadcrumb ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+    
+.breadcrumb li:not(:last-child)::after {
+    display: inline-block;
+    margin: 0 .25rem;
+    content: "→";
+}
+
+.related  {
+  display: inline-flex;
+    margin: 0 .25rem;
+    
+}
+
+/* .related li:not(:last-child)::after {
+   
+    content: " | ";
+} */
+.opener {
+    text-align: left;
+}
+</style>

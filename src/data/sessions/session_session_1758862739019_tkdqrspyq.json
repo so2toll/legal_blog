@@ -1,0 +1,40 @@
+{
+  "sessionId": "session_1758862739019_tkdqrspyq",
+  "agentId": "victim_1758862739019",
+  "customerId": "customer_1758862739019",
+  "status": "initiated",
+  "sessionType": "widget",
+  "widgetUserRole": "victim",
+  "formData": {
+    "name": "Test Victim",
+    "email": "victim@test.com"
+  },
+  "templateId": "widget-template",
+  "docuSeal": {
+    "submissionId": null,
+    "templateId": "widget-template",
+    "signerSlug": null,
+    "signedAt": null,
+    "documentUrl": null
+  },
+  "openReplay": {
+    "sessionId": "or_session_1758862739019_tkdqrspyq",
+    "projectKey": null,
+    "replayUrl": null,
+    "startTime": "2025-09-26T04:58:59.019Z"
+  },
+  "timestamps": {
+    "created": "2025-09-26T04:58:59.019Z",
+    "started": "2025-09-26T04:58:59.019Z",
+    "completed": null
+  },
+  "metadata": {
+    "widgetUserRole": "victim",
+    "clientId": "test-client",
+    "clientName": "Test Client",
+    "clientOrigin": "http://localhost:3000",
+    "ipAddress": null,
+    "userAgent": null,
+    "device": null
+  }
+}

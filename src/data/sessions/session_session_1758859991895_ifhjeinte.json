@@ -1,0 +1,40 @@
+{
+  "sessionId": "session_1758859991895_ifhjeinte",
+  "agentId": "advocate_1758859991734",
+  "customerId": "customer_1758859991895",
+  "status": "initiated",
+  "sessionType": "widget",
+  "widgetUserRole": "advocate",
+  "formData": {
+    "name": "Sarah Johnson",
+    "email": "sarah@acme-corp.com"
+  },
+  "templateId": "widget-template",
+  "docuSeal": {
+    "submissionId": null,
+    "templateId": "widget-template",
+    "signerSlug": null,
+    "signedAt": null,
+    "documentUrl": null
+  },
+  "openReplay": {
+    "sessionId": "or_session_1758859991895_ifhjeinte",
+    "projectKey": null,
+    "replayUrl": null,
+    "startTime": "2025-09-26T04:13:11.895Z"
+  },
+  "timestamps": {
+    "created": "2025-09-26T04:13:11.895Z",
+    "started": "2025-09-26T04:13:11.895Z",
+    "completed": null
+  },
+  "metadata": {
+    "widgetUserRole": "advocate",
+    "clientId": "acme-corp",
+    "clientName": "Acme Corporation",
+    "clientOrigin": "http://localhost:3000",
+    "ipAddress": null,
+    "userAgent": null,
+    "device": null
+  }
+}

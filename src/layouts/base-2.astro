@@ -1,0 +1,108 @@
+---
+import type { Frontmatter } from '../config'
+// import SEO from '../components/seo.astro'
+// import Header from '../components/header.astro'
+// import Footer from '../components/footer.astro'
+// import Header from './partials/MainHeader.astro' 
+import Header from './partials/MainHeader-VictimAssist.astro' 
+
+export interface Props {
+  frontmatter: Frontmatter
+}
+
+const { frontmatter } = Astro.props
+
+import { SEO } from 'astro-seo';
+import siteData from '../constants/siteData.json';
+
+siteData.default.title = frontmatter.title ? frontmatter.title : siteData.default.title;
+siteData.default.description = frontmatter.description ? frontmatter.description : siteData.default.description;
+
+const { seo = {} } = Astro.props;
+const merged = {
+  ...siteData.default,
+  ...seo,
+  openGraph: {
+    basic: {
+      ...siteData.default.openGraph.basic,
+      ...seo.openGraph?.basic,
+      url: Astro.url.href
+    },
+    optional: siteData.default.openGraph.optional
+  },
+  twitter: {
+    ...siteData.default.twitter,
+    ...seo.twitter
+  }
+};
+
+
+// const openGraph = {
+//   basic: {
+//     title: frontmatter.title + " | Pigeonly",
+//     type: 'website',
+//     image: image.src,
+//   },
+//   optional: {
+//     description: frontmatter.description,
+//     siteName: SiteMetadata.title,
+//   },
+//   image: {
+//     alt: frontmatter.title,
+//   },
+//   article: {
+//     author: frontmatter.author,
+//     publishedTime: SiteMetadata.buildTime,
+//     tags: frontmatter.tags,
+//   },
+// }
+// const twitter = {
+//   card: frontmatter.socialImage ? 'summary_large_image' : 'summary',
+//   site: SiteMetadata.org.twitter,
+//   creator: SiteMetadata.author.twitter,
+// }
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/favicon.ico"
+    />
+    <SEO {...merged} 
+    
+    />
+    <!-- <meta name="generator" content={Astro.generator} /> -->
+    <meta name="generator" content="/src/images/core/Victim AssistMainHeader.webp" />
+    
+    <!-- <SEO frontmatter={frontmatter} /> -->
+   
+    <style is:inline>
+      [x-cloak] { display: none !important; }
+      </style>
+    
+    {frontmatter.extra?.includes('markmap') &&
+      <style>
+        .markmap > svg {
+          width: 100%;
+          height: 400px;
+        }
+        </style>
+      }
+    <slot name="in-head" />
+    </head>
+    <body class="dark:bg-gray-900">
+   
+      <Header />
+      <slot />
+      <!-- <Footer /> -->
+      {frontmatter.extra?.includes('markmap') &&
+        <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
+      }
+  </body>
+</html>

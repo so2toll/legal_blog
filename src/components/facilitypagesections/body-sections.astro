@@ -1,0 +1,176 @@
+---
+// import MainSection from '../../templates/main.astro'
+import MainSection from './templates/main.astro'
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+  test?:string
+  slug?:string
+}
+
+// console.log(234234234, Astro.props.data.props.post.city)
+
+let { data, type, statePath, slug,   } = Astro.props as any
+const {updatedOn, title, path, facilityName, stateName} = data.props.post
+
+let content = ''
+
+switch (type) {
+  
+ 
+  case 'facility-page':
+  
+    break
+  default:
+  content =''
+    
+    break
+}
+
+let schema = JSON.stringify(
+{"@context":"https://schema.org",
+  "@graph":[
+  
+    {
+        "@type": "Person",
+        "@id":"https://victim-assist.com/#founder",
+        "name": "Steven Otu",
+        "sameAs": "https://en.wikipedia.org/wiki/Steven Otu"
+      },
+  
+  
+  {
+  "@type":"Organization",
+  "@id":"https://victim-assist.com/#organization",
+  "name":"Victim Assist",
+  
+  "url":"https://victim-assist.com/",
+  "sameAs":
+  [
+    "https://www.instagram.com/victim-assist/?hl=en",
+    "https://twitter.com/pigeon_ly?lang=en",
+    "https://www.facebook.com/tryvictim-assist/",
+    "https://br.pinterest.com/victim-assist/",
+    "https://www.linkedin.com/company/victim-assist/"
+  ],
+  "founder":{"@id":"https://victim-assist.com/#founder"},
+  "logo":{"@type":"ImageObject",
+  "@id":"https://victim-assist.com/#logo", 
+  "url":"https://victim-assist.com/assets/pigLogo.ae14359e.svg",
+  "caption":"Victim Assist"},
+  "image":{"@id":"https://victim-assist.com/#logo"}},
+  {
+  "@type":"WebSite",
+  "@id":"https://victim-assist.com/#website",
+  "url":"https://victim-assist.com/",
+  "name":"Victim Assist",
+  "publisher":{"@id":"https://victim-assist.com/#organization"}
+  },
+  {
+  "@type":"WebPage",
+  "@id":"https://victim-assist.com/jails-prisons/#webpage",
+  "url":"https://victim-assist.com/wordpress-seo/",
+  "inLanguage":"en-US",
+  "name":"Victim Assist",
+  "isPartOf":{"@id":"https://victim-assist.com/#website"}
+  },
+  {
+     "@type": "GovernmentBuilding",
+     "@id":"https://victim-assist.com/jails-prisons/#building",
+  
+     "name":  data.props.post.facilityName,
+     "openingHours": "Mo,Tu,We,Th,FR,Sa,Su 09:00-18:00",
+     "description": "Correctional Facility Information & Visitation Rules. Free inmate lookup to any County Jail, Federal BOP Prisons, Department of Corrections & State Prisons. Send Photos to any DOC facility, Mail Commissary Account Money, Save 70% on Inmate Phone Calls or Write a Prisoner Letters",
+     "telephone":  data.props.post.phone,
+     "address": {
+      "@type": "PostalAddress",
+      "streetAddress": data.props.post.address,
+      "addressLocality": data.props.post.city,
+      "addressRegion": data.props.post.state,
+     },   
+      "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://victim-assist.com/jails-prisons/#webpage"
+      }
+  
+      
+  },
+  
+  {
+      
+        "@type": "Product",
+        "brand": {
+          "@type": "Brand",
+          "name": "Victim Assist"
+        },
+      "review": {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "3.74"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Victim Assist Customer"
+          }},
+        "description": "Locating an inmate is not an easy task. Thanks to our advanced inmate database, most of the inmate records are available online and accessible to the public. We've created an easy to use inmate locator tool, to help make finding your inmate easier in the current tough circumstances you be in.",
+        "sku": "pig-052021",
+        "mpn": "052021",
+        "image": "https://victim-assist.com/assets/pigLogo.ae14359e.svg",
+        "name": "Victim Assist",
+       
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "3.74",
+          "bestRating": "5",
+          "ratingCount": "999"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://victim-assist.com/pricing/",
+          "priceCurrency": "USD",
+          "price": "19.99",
+          "priceValidUntil": "2023-12-05",
+          "itemCondition": "https://schema.org/UsedCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Victim Assist"
+          }
+        }
+    
+    }
+    
+    ]
+  }
+  
+  
+      );
+---
+
+<div class="py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-left">
+  
+ <MainSection data={data} type={type} stateName={stateName as string} statePath={statePath as string} 
+  facilityName={data.props.post.title as string}  type={type} slug={slug}  /> 
+  <script type="application/ld+json" set:html={schema}></script>
+
+    
+    </div>
+
+  </div>
+</div>
+
+<style>
+
+
+.opener {
+    text-align: left;
+}
+</style>

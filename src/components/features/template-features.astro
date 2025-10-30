@@ -1,0 +1,249 @@
+---
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+  test?:string
+  slug?:string
+}
+
+// const {data } = Astro.props as any
+let { type } = Astro.props
+console.log(4232323, type);
+// let  statePath  = Astro.params.state as string
+// let homeUrl = {{<a href="/">Home</a>}}
+
+
+// const {updatedOn, title, path, facilityName,    stateName, city, county, state, facility, address, phone} = data.props.post
+
+// const output = `<a href="/${facilityName}"> Victim Assist provides</a>`
+
+
+let content = { header: '' as string | undefined, description: '', button: '', img:''  }
+
+
+switch (type) {
+  case 'how-it-works':
+    content = {
+      header: 'How it Works',
+      description:
+        'Our goal is to make sure you always have everything you need to support your incarcerated loved one. Here's how it all works.',
+        button:'Get Started', 
+        img:'https://iili.io/HxCsNzx.webp'  
+    }
+    break
+  case 'send-money-product-page':
+    content = {
+      header: 'Send Inmates Money Online',
+      description:
+        'Fund your inmate's commissary or inmate trust account using your credit, debit, prepaid or your bank account. Add to an inmate's books today.',
+      button:'Try Easy Pay', 
+      img:'' 
+    }
+    break
+  case 'send-pictures-product-page':
+    content = {
+      header: 'Send Pictures to Inmates in Jail or Prison',
+      description:
+        'Send photos from your phone or computer to your inmate. Shipping and handling is included with your membership.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'send-articles-product-page':
+    content = {
+      header: 'Send Articles to Inmates',
+      description:
+        'Send articles from your phone or computer to your inmate. Shipping & handling is included with your membership.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'send-greeting-cards-product-page':
+    content = {
+      header: 'Send Greeting Cards to Inmates',
+      description:
+        'Send greeting cards for birthdays, holidays, and more all from your phone or computer to your inmate. Shipping & handling is included with your membership.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'send-postcards-product-page':
+    content = {
+      header: 'Send Postcards to Inmates',
+      description:
+        'Send postcards from your phone or computer to your inmate. Pay for shipping & handling for additional postcards you send.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'inmate-calling-product-page':
+    content = {
+      header: 'Inmate Phone Calls',
+      description:
+        'Your inmate will never miss a moment again, get your best rate phone number, today!',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'write-a-prisoner-product-page':
+    content = {
+      header: 'Write a Prisoner',
+      description:
+        'Send mail to jail and at any county, state, or federal correctional facility. We take all of the work of packaging letters for you – making it a quick, easy process. Write an inmate right from your phone, tablet or computer.',
+        button:'Try Free', 
+        img:'' 
+    }
+    break
+  case 'prisonwives':
+    content = {
+      header: 'Inmates aren't the only ones who need support.',
+      description:
+        'Our Facebook group is a free support community group for prison wives, girlfriends, family, and friends of prisoners. It's a place to come together and share with other people who already know exactly what you're going through.',
+        button:'Join Group', 
+        img:'' 
+    }
+    break
+    
+  case 'about':
+    content = { header: 'byyebye', description: '', button:'', img:''  }
+    break
+  case 'pricing':
+    content = {
+      header: 'One low price, many ways to connect',
+      description:
+        'Let your love language show. Send unlimited photos, letters, postcards, greeting cards, and web articles to your loved one. All for one low price.',
+        button:'Get Started', 
+        img:'https://iili.io/HxCsNzx.webp' 
+    }
+    break
+
+  default:
+    content = { header: 'ssssbyyebye', description: '', button:'', img:''  }
+    break
+}
+
+// console.log("this the final features: ", type,slug,finalFeatures)
+---
+
+<div class="bg-gray-100 dark:bg-gray-800" style="text-align: center; margin-top: -7%;  ">
+
+   
+    <div class="container mx-auto px-4 py-12 lg:py-24">
+        <div class="flex flex-col lg:flex-row items-center justify-between" style=" margin-left: 10%; margin-right: 10%;"
+    >
+        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+            <img width="300px" src="" />
+        </div>
+        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                <h2 class="text-4xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+                    Photos straight from your phone to your inmate
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                    We make it easy to send high quality, color printed photos to your loved one in prison. Send them photos from your mobile phone, tablet or computer. You can upload photos from your camera roll, computer gallery or even Facebook account.
+
+                    Add Photos to your Victim Assist plan.
+                </p>
+                <div style ="padding-bottom: 5%;">
+                <a  target="_blank" href="https://data3d.io/search" class="bg-cyan-600 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-lg">
+                   Send Photos
+                </a></div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="bg-white dark:bg-white" style="text-align: center;">
+
+   
+        <div class="container mx-auto px-4 py-12 lg:py-24">
+            <div class="flex flex-col lg:flex-row items-center justify-between" style=" margin-left: 10%; margin-right: 10%;"
+        >
+            
+            <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                    <h2 class="text-4xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+                        aaaPhotos straight from your phone to your inmate
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                        We make it easy to send high quality, color printed photos to your loved one in prison. Send them photos from your mobile phone, tablet or computer. You can upload photos from your camera roll, computer gallery or even Facebook account.
+    
+                        Add Photos to your Victim Assist plan.
+                    </p>
+                    <div style ="padding-bottom: 5%;">
+                        <a  target="_blank" href="https://data3d.io/search" class="bg-cyan-600 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-lg">
+                           Send Photos
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                    <img width="300px" src="" />
+                </div>
+              </div>
+
+            </div>
+            
+        </div>
+
+        <div class="bg-gray-100 dark:bg-gray-800" style="text-align: center;">
+
+   
+            <div class="container mx-auto px-4 py-12 lg:py-24">
+                <div class="flex flex-col lg:flex-row items-center justify-between" style=" margin-left: 10%; margin-right: 10%;">
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                    <img width="300px" src="" />
+                </div>
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                        <h2 class="text-4xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+                            dddPhotos straight from your phone to your inmate
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                            We make it easy to send high quality, color printed photos to your loved one in prison. Send them photos from your mobile phone, tablet or computer. You can upload photos from your camera roll, computer gallery or even Facebook account.
+        
+                            Add Photos to your Victim Assist plan.
+                        </p>
+                        <div style ="padding-bottom: 5%;">
+                            <a  target="_blank" href="https://data3d.io/search" class="bg-cyan-600 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-lg">
+                               Send Photos
+                            </a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-white" style="text-align: center;">
+
+   
+            <div class="container mx-auto px-4 py-12 lg:py-24">
+                <div class="flex flex-col lg:flex-row items-center justify-between" style=" margin-left: 10%; margin-right: 10%;"
+            >
+                
+                <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                        <h2 class="text-4xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+                           xxx Photos straight from your phone to your inmate
+                        </h2>
+                        <p class="text-gray-600 dark:text-gray-400 text-lg mb-8">
+                            We make it easy to send high quality, color printed photos to your loved one in prison. Send them photos from your mobile phone, tablet or computer. You can upload photos from your camera roll, computer gallery or even Facebook account.
+        
+                            Add Photos to your Victim Assist plan.
+                        </p>
+                        <div style ="padding-bottom: 5%;">
+                            <a  target="_blank" href="https://data3d.io/search" class="bg-cyan-600 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-lg">
+                               Send Photos
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+                        <img width="300px" src="" />
+                    </div>
+                  </div>
+    
+                </div>
+                
+            </div>
+
+            

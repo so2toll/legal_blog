@@ -1,0 +1,141 @@
+---
+let { type, stateName } = Astro.props;
+import FeatureList from '../../components/features/featureList.astro'
+import SendPicturesProductFeatures from '../../components/features/send-pictures-product-features.astro'
+import SendMoneyProductFeatures from '../../components/features/send-money-features.astro'
+import SendArtilcesProductFeatures from '../../components/features/send-articles-features.astro'
+import InmateCallingProductFeatures from '../../components/features/inmate-calling-features.astro'
+import WritePrisonerProductFeatures from '../../components/features/write-a-prisoner-features.astro'
+import PrisonWivesFeatures from '../../components/features/prisonwives-features.astro'
+import PricingFeatures from '../../components/features/pricing-features.astro'
+import FAQFeatures from '../../components/features/faq-features.astro'
+import SendPostcardsProductFeatures from '../../components/features/send-postcards-features.astro'
+import GreetingCardsProductFeatures from '../../components/features/send-greeting-cards-product-features.astro'
+import HomepageProductFeatures from '../../components/features/homepage-product-features.astro'
+
+export interface Props {
+  type?: String,
+  stateName?: String
+}
+
+let features=[{name:'', description:'', icon:'', featureHead:'', typeSection:''}];
+let featMap;
+  switch (type) {
+    case 'how-it-works':
+     features = [
+  {
+    name: 'Free Inmate Locator Tool',
+    description:
+      'Use our free inmate locator to search & find your inmate at any Federal, State or country facility.',
+    icon: '',
+    featureHead:'Stay Connected with Ease',
+    typeSection:'how-it-works',
+    // stateName:stateName
+  },
+  {
+    name: 'Conveniently Pay',
+    description:
+      'Select autopay and never worry about losing connection with your loved one. Pay as you go options are also available.',
+    icon: '',
+    featureHead:'Stay Connected with Ease',
+    typeSection:'how-it-works',
+    // stateName:stateName
+  },
+  {
+    name: 'Love Without Limits',
+    description:
+      'Everyone loves unlimited, which is why you can use any Victim Assist service as little or as much as you like.',
+    icon: '',
+    featureHead:'Stay Connected with Ease',
+    typeSection:'how-it-works',
+    // stateName:stateName
+  },
+  {
+    name: 'No Long Term Commitments',
+    description:
+      'Try Risk Free – You can cancel anytime directly on our website or by contacting our live customer service line. We take pride in our satisfaction guarantee.',
+    icon: '',
+    featureHead:'Stay Connected with Ease',
+    typeSection:'how-it-works',
+    // stateName:stateName
+  },
+]
+      break;
+    case 'about':
+    features = [{name:"abyyebye", description:'', icon:'', featureHead:'', typeSection:'',
+    // stateName:stateName
+  }]
+      break;
+     break;
+     case 'facility-page':
+      // let data =data 
+      features = features = [{name:"sssbyyebye", description:'', icon:'',   featureHead:'', typeSection:'',
+      // stateName:stateName
+    }]
+     break;
+     case 'state-page':
+      // let data =data 
+      features = features = [{name:"yyysssbyyebye", description:'Find your facility below', 
+      icon:'', featureHead:stateName.replace( "-", " " ) as any + " Correctional Facilities", typeSection:'state-page-how-works', 
+      // stateName:stateName
+    }]
+
+          
+      break;
+    default:
+    features = [{name:"ibyyesbnye", description:'', icon:'', featureHead:'', typeSection:'', 
+    // stateName:stateName
+  }]
+      break;
+  }
+
+let featureHeader = features[0].featureHead;
+let featureDesc= features[0].description;
+// console.log(type);
+
+---
+
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
+    <div class="lg:text-center">
+       { 
+       features[0].typeSection === "how-it-works" ? <h2
+       class="text-base text-cyan-800 dark:text-cyan-300 font-semibold tracking-wide uppercase" style="margin:3%"
+     >
+    
+       Features
+     </h2>  : ""
+     }
+
+      <p
+        class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl"
+      style="text-transform: capitalize;">
+         { featureHeader     }
+        
+      </p>
+      <p
+        class="mt-4 max-w-2xl text-xl text-gray-600 dark:text-gray-300 lg:mx-auto"
+      >
+      { featureDesc } 
+      </p>
+    </div>
+{ features[0].typeSection === "how-it-works" ? <FeatureList features={features} />  : ""}
+   
+
+  </div>
+  
+  <div>{type == 'send-money-product-page'  ?  <SendMoneyProductFeatures type='send-money-product-page' />  : ''} 
+{type == 'send-pictures-product-page'  ?   <SendPicturesProductFeatures type='send-pictures-product-page' />  : ''}  
+{type == 'send-articles-product-page'  ?  <SendArtilcesProductFeatures type='send-articles-product-page' />   : ''}  
+{type == 'send-greeting-cards-product-page'  ?  <GreetingCardsProductFeatures type='send-greeting-cards-product-page' />   : ''}  
+{type == 'send-postcards-product-page'  ?  <SendPostcardsProductFeatures type='send-postcards-product-page' />   : ''}
+{type == 'inmate-calling-product-page'  ?  <InmateCallingProductFeatures type='inmate-calling-product-page' />   : ''}
+{type == 'write-a-prisoner-product-page'  ?  <WritePrisonerProductFeatures type='write-a-prisoner-product-page' />  : ''}  
+{type == 'prisonwives'  ?  <PrisonWivesFeatures type='prisonwives' />   : ''}  
+{type == 'pricing'  ?  <PricingFeatures type='pricing' />   : ''}  
+{type == 'faq'  ?  
+<FAQFeatures type='faq' /> 
+    : ''} 
+{type == 'homepage'  ?  <HomepageProductFeatures type='homepage' />   : ''}  
+
+</div>

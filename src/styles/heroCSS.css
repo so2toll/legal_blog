@@ -1,0 +1,5 @@
+@media (max-width:629px) {
+    img#optionalstuff {
+      display: none;
+    }
+  }

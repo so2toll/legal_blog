@@ -1,0 +1,164 @@
+---
+import type { MarkdownInstance, Page, PaginateFunction } from 'astro'
+
+let {post} = Astro.props;
+
+ let { state, facility, slug  } = Astro.params;
+
+
+let {path, statusCodeMatch, facId,  LandingPage, oldFacSlug, redirectUrl3} = post.props.post
+
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+
+
+//   const redirects3 = await fetch(
+//   'https://victim-assist-prod-blog.vercel.app/neoapi/neo-api-redirects-3.json'
+// ).then((res) => res.json());
+
+
+
+
+// const redirects = await fetch(
+//   'http://localhost:8888/.netlify/functions/neo-api-redirects-3'
+// ).then((res) => res.json());
+
+
+// const redirects1= await fetch(
+//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-redirects.json'
+// ).then((res) => res.json());
+
+// const redirects2 = await fetch(
+//   'https://victim-assist-prod-blog.vercel.app/neoapi/neo-api-redirects-2.json'
+// ).then((res) => res.json());
+
+// const redirects3 = await fetch(
+//   'https://victim-assist-prod-blog.vercel.app/neoapi/neo-api-redirects-3.json'
+// ).then((res) => res.json());
+
+
+// const redirects2 = await fetch(
+//   'https://victim-assist-prod-blog-so2toll-victim-assist.vercel.app/neoapi/neo-api-redirects-2.json'
+// ).then((res) => res.json());
+
+
+
+// let combinedResponses = [].concat(redirects1.message, redirects2.message);
+// let combinedResponses = [].concat(redirects1.message, redirects2.message, redirects3.message);
+// let combinedResponses = [].concat(redirects1.message);
+
+// let finalResponses = {message:combinedResponses}
+
+
+ let response2 = {
+  message: [
+    
+ 
+ 
+ 
+
+  {
+"path": "catahoula-parish-jail",
+"statusCodeMatch": "200",
+"facId": "69725-2",
+"state": "louisiana",
+"LandingPage": "https://victim-assist.com/jail-prisons/louisiana/suucatahoula-parish-jail/69725-2/send-inmate-money-commissary/",
+"slug": "send-inmate-money-commissary",
+"redirectUrl3": "https://victim-assist.com/jail-prisons/louisiana/catahoula-parish-jail/send-inmate-money-commissary/"
+  }
+    
+  ]
+}
+
+// let slugs = ['visitation', 'write-a-prisoner']
+// let allFacs = slugs.map( slug=>{
+
+//   return slug;
+// } )
+
+// let response2 
+// let newFacs = finalResponses.message.map( (res: {
+  let newFacs = response2.message.map( (res: {
+    path: string, 
+    statusCodeMatch: string,
+    facId: string, 
+    state: string,
+    LandingPage:string,
+    slug:string,
+    redirectUrl3:string,
+   
+
+}) =>{
+      
+      let {path, statusCodeMatch, facId, state,    LandingPage, slug, redirectUrl3, } = res
+      slug == undefined || slug == '' || slug=='null' ? slug=' ' : slug;
+      // let isString = typeof state  ? slug=' ' : slug;
+      state = typeof state == 'string' ? LandingPage.split('/jail-prisons')[1].split('/')[1] : 'unknown';
+      facId = typeof facId == 'string' ? facId : 'unknown';
+      path = typeof path == 'string' ? path : 'unknown';
+      facId = typeof facId == 'string' ? facId : 'unknown';
+      path = path == 'unknown' ? 'unknown' : LandingPage.split('/jail-prisons')[1].split('/')[2];
+      facId =  facId.includes('?') ? 'unknown' : facId;
+      // LandingPage = 
+      
+      // console.log(54545455,state)// let stateLower = state.toLowerCase();
+      // facility = facility.replace(/\s/g , "-").replace("/" , " "); 
+      // facilityName = facilityName.replace(/\s/g , "-").replace("/" , " "); 
+      // console.log(7444,state,stateName,44232, slug);
+      // console.log(typeof slug, slug, facId, path,LandingPage,5757333995663333, state, redirectUrl3,path );
+
+    // slug='write-a-prisoner'
+
+  //   facility = facility.replace("/" , " ")
+  // facilityName = facilityName.replace("/" , " ");
+  // title = title.replace("/" , " ");
+      let finalUrl = { 
+        
+        params: { state, path, facId, slug3:slug }, 
+          props:  { post:{
+            path, facId,state, LandingPage, slug, redirectUrl3
+        }
+      } 
+    }
+
+   
+    return finalUrl
+
+})
+
+  return newFacs.map((post: { params: any }) => {
+// console.log(22545454545,post)
+    return {
+      params:  post.params as any ,
+      props: { post } };
+  });
+
+
+
+}
+// redirectUrl3 = redirectUrl3.replace('inmate-phone-calls', 'inmate-calling')
+
+// console.log(34534545, redirectUrl3, 34534545)
+// console.log("and ld slug is:", oldFacSlug, path, statusCodeMatch, state, facId, "and redirec is: ", redirectUrl3 );
+
+---
+
+<!-- <Base frontmatter={frontmatter}> -->
+  
+  <head>
+    <meta http-equiv="refresh" content={`0; url=${redirectUrl3}`} />
+  </head>
+  <!-- <Sections data={post} stateName={state as string} statePath={facility as string} 
+  facilityName={post.props.post.title as string}  type={"facility-page"} slug={slug as string}  />
+  
+  <FacilityBlogRoll 
+  data={post} stateName={state as string} statePath={facility as string} 
+  facilityName={post.props.post.title as string}  type={"facility-page"} slug={slug as string}/>
+  
+  <BodySections data={post} stateName={state as string} statePath={facility as string} 
+  facilityName={post.props.post.title as string}  type={"facility-page"} slug={slug as string} /> -->
+   
+  <!-- <CTA type="how-it-works" /> -->
+  <div class="p-24 md:p-12 bg-white dark:bg-black"></div>
+ 
+<!-- </Base> -->

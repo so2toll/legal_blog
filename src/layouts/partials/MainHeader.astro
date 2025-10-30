@@ -1,0 +1,402 @@
+---
+// import { Icon } from 'astro-icon'
+// import { NavigationLinks, Logo } from '../config'
+// import Search from '../components/search.astro'
+// import Theme from '../components/theme.astro'
+// import SVGImg from '../components/svgimg.astro'
+import Logo from "../components/Logo.astro";
+
+const NavigationLinks = [
+  // { name: 'Hodme', href: '' },
+  { name: 'Inmate Services', href: '#' },
+  { name: 'Pricing', href: 'pricing/' },
+  { name: 'How it Works', href: 'how-it-works/' },
+  { name: 'Jails & Prisons', href: 'jail-prisons/' },
+  { name: 'Blog', href: 'blog/' },
+  { name: 'Contact Us', href: 'contact/' },
+]
+  // const Logo = '../svg/astro/pigLogo.svg'
+---
+
+<div class="relative h-16 w-full">
+  <nav x-data="{ isOpen: false }" class="dark:bg-gray-800">
+    <div
+      class="fixed z-50 mx-auto px-2 sm:px-6 lg:px-8  dark:bg-gray-800 w-full border-b-2  "
+    >
+      <div class="relative flex items-center justify-between h-16">
+        <div class="absolute inset-y-0 left-0 flex items-center lg:hidden">
+          <!-- Mobile menu button-->
+          <button
+            type="button"
+            x-on:click="isOpen = !isOpen"
+            class="inline-flex items-center justify-center p-2 rounded-md  hover:bg-cyan-200 dark:text-cyan-300 dark:hover:text-cyan-300 dark:hover:bg-cyan-800 dark:focus:ring-cyan-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-300"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <!-- <Icon
+              x-bind:class="{'hidden': isOpen, 'block': !isOpen }"
+              class="block h-6 w-6"
+              aria-hidden="true"
+              pack="heroicons-outline"
+              name="menu"
+            />
+            <Icon
+              x-bind:class="{'block': isOpen, 'hidden': !isOpen }"
+              class="hidden h-6 w-6"
+              aria-hidden="true"
+              pack="heroicons-outline"
+              name="x"
+            /> -->
+          </button>
+        </div>
+        <div
+          class="flex-1 flex items-center justify-center lg:items-stretch lg:justify-start"
+        >
+          <div class="flex-shrink-0 flex items-center">
+            <a href="/">
+              <!-- <SVGImg
+                class="block h-8 w-13 dark:bg-gray-100"
+                src={Logo}
+                alt="Logo"
+              /> -->
+              <Logo />
+            </a>
+          </div>
+          <div class="hidden lg:block lg:ml-6">
+            
+            <div class="flex space-x-4">
+              {
+                NavigationLinks.map(item => (
+                  <a
+                    href={import.meta.env.BASE_URL + item.href}
+                    class={
+                      (item.href.length > 0 &&
+                      Astro.url.toString().includes(item.href)
+                        ? 'bg-cyan-200 text-cyan-600 dark:bg-cyan-800 dark:text-cyan-300'
+                        : '  hover:text-cyan-600 dark:text-cyan-200 dark:hover:bg-cyan-800 dark:hover:text-cyan-300') +
+                      ' px-2 py-2 rounded-md text-lg font-medium'
+                    }
+                    aria-current={
+                      item.href.length > 0 &&
+                      Astro.url.toString().includes(item.href)
+                        ? 'page'
+                        : undefined
+                    }
+                  >
+                    {item.name == 'Inmate Services' ? (
+                      <ul>
+                        <li class="dropdown">
+                          <a
+                            href="#"
+                            class="  
+   hover:text-cyan-600  dark:hover:bg-cyan-800
+  dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium "
+                          >
+                            {item.name}
+                          </a>
+                          <div class="dropdown-content">
+                            <a href="/send-pictures-to-inmates/">Send Photos</a>
+                            <a href="/send-money-to-inmate/">Send Money</a>
+                            <a href="/inmate-calling/">Prison Calls</a>
+                            <a href="/write-a-prisoner/">Send Letters</a>
+                            <a href="/send-postcards-to-inmates/">Send Postcards</a>
+                            <a href="/send-greeting-cards-to-inmates/">Send Greeting Cards</a>
+                            <a href="/send-articles-to-inmates/">Send Articles</a>
+                            
+
+                            
+                          </div>
+                        </li>
+                      </ul>
+                    ) : (
+                      item.name
+                    )}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+        >
+          <!-- <Search /> -->
+          <!-- <Theme /> -->
+
+          <!-- Right nav -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div
+      x-show="isOpen"
+      x-cloak
+      x-transition:enter="transition ease-out duration-100 transform"
+      x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75 transform"
+      x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95"
+      class="absolute top-16 inset-x-0 z-50"
+      id="mobile-menu"
+    >
+      <div
+        class="px-4 py-2 bg-gray-100 dark:bg-gray-800 font-semibold  dark:border-cyan-600 border-t-2 border-b-2 flex justify-center"
+     style="display: inline-grid; position:fixed;"
+        >
+      
+        <a href="/"  class=" 
+        hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+        dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium" >Home</a>
+        <ul>
+          
+          <li class="dropdown">
+            <a
+              href="#"
+              class=" 
+hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium "
+            >
+              Inmate Services
+            </a>
+            <div class="dropdown-content ">
+              <a href="/send-pictures-to-inmates/"        class=" text-cyan-600 
+              hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+              dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium ">Send Photos</a>
+              <a href="/send-money-to-inmate/"  class=" text-cyan-600 
+              hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+              dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium ">Send Money</a>
+              <a href="/inmate-calling/" class=" text-cyan-600 
+              hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+              dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium ">Prison Calls</a>
+              <a href="/write-a-prisoner/" class=" text-cyan-600 
+              hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+              dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium ">Send Letters</a>
+              <a href="/send-postcards-to-inmates/" class=" text-cyan-600 
+              hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+              dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium ">Send Postcards</a>
+              <a href="/send-greeting-cards-to-inmates/"  class=" text-cyan-600 
+              hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+              dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium ">Send Greeting Cards</a>
+              <a href="/send-articles-to-inmates/"  class=" text-cyan-600 
+              hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+              dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium ">Send Articles</a>
+              
+
+              
+            </div>
+            
+          </li>
+       
+        </ul> 
+        
+        <a href="/pricing/"  class=" 
+        hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+        dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium" >Pricing</a>
+        <a href="/how-it-works/" class=" 
+        hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+        dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium">How it Works</a>
+        <a href="/jail-prisons/" class=" 
+        hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+        dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium">Jails & Prisons</a>
+        <a href="/blog/" class=" 
+        hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+        dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium">Blog</a>
+        <a href="/contact/" class=" 
+        hover:bg-cyan-200 hover:text-cyan-600  dark:hover:bg-cyan-800
+        dark:bg-cyan-800 dark:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium">Contact Us</a>
+       
+      </div>
+    </div>
+  </nav>
+</div>
+
+<style>
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #333; */
+  }
+
+  li {
+    float: left;
+  }
+
+  li a,
+  .dropbtn {
+    display: inline-block;
+    /* color: white; */
+    text-align: center;
+    /* padding: 14px 16px; */
+    text-decoration: none;
+  }
+
+  li a:hover,
+  .dropdown:hover .dropbtn {
+    /* background-color: red; */
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropbtn {
+    /* border-bottom: 3px solid red; */
+  }
+
+  .dropbtn::after {
+    content: 'v';
+    /* color: red; */
+    padding-left: 5px;
+  }
+
+
+  #menuToggle {
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;  
+  z-index: 1;  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: #4f7794;
+}
+
+
+/* The hamburger button hidden inside an input element */
+#menuToggle input {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: -7px;
+  left: -5px;  
+  padding: 0;
+  cursor: pointer;  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */  
+  -webkit-touch-callout: none;
+}
+
+#menuToggle label {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+#menuToggle label span {
+  display: none;
+}
+
+/*
+ * Hamburger
+ */
+#menuToggle label div {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-bottom: 6px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;  
+  z-index: 1;  
+  -webkit-transform-origin: 4px 0px;  
+      -ms-transform-origin: 4px 0px;  
+          transform-origin: 4px 0px;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#menuToggle label div:first-child {
+  -webkit-transform-origin: 0% 100%;
+      -ms-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+#menuToggle label div:nth-child(2) {
+    -webkit-transform-origin: 0% 0%;
+      -ms-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+
+/* 
+ * Change the color of the hamburger when toggled
+ */
+#menuToggle input:checked + label div {
+  background: #232323;
+}
+
+/*
+ * Use absolute positioning to place the menu off-screen
+ */
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #ededed;
+  list-style-type: none;
+  /* Hide the menu off-screen to the left */
+  left: -100%;
+  -webkit-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  transition: left 0.3s ease; 
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * Slide the menu in from left when the input is checked
+ */
+#menuToggle input:checked ~ ul {
+  left: 0;
+}
+</style>

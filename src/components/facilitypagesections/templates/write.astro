@@ -1,0 +1,282 @@
+---
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+  test?:string
+  slug?:string
+}
+
+// const { data, type, statePath, slug  } = Astro.props as any
+const {data } = Astro.props as any
+const {updatedOn, title, path, facilityName, slug,   stateName, city, county, state, facility, address, phone} = data.props.post
+---
+<section >
+	
+	<h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to Find Someone in {facilityName}  </h2>
+<div class="flex flex-col lg:flex-row items-center justify-between" style="  display:flex; width: 100%;  align-items: center;
+"
+>
+<div class="w-full lg:w-1/4 mb-8 lg:mb-0 h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden" style="margin:2%; padding:2%">
+		
+  <h3 class="text-2xl text-center lg:text-xxl  text-gray-800 dark:text-gray-100 mb-4 font-bold ">
+	  Step 1
+  </h3>
+ 
+	  <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+		Go to <a target="_blank" href="/">victim-assist.com</a> to start a search for your inmate. First, click "Get Started" and enter your inmate's first and last name.
+	  </p>
+
+   
+  </div>
+  <div class="w-full lg:w-1/4 mb-8 lg:mb-0 h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden" style="margin:2%; padding:2%">
+		
+	<h3 class="text-2xl text-center lg:text-xxl  text-gray-800 dark:text-gray-100 mb-4 font-bold ">
+		Step 2 
+	</h3>
+   
+		<p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+		  Make sure to check if your inmate's facility is county, state, or federal.
+		</p>
+
+		
+	</div>
+	<div class="w-full lg:w-1/4 mb-8 lg:mb-0 h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden" style="margin:2%; padding:2%">
+		
+	  <h3 class="text-2xl text-center lg:text-xxl  text-gray-800 dark:text-gray-100 mb-4 font-bold ">
+		  Step 3
+	  </h3>
+	 
+		  <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+			Find your inmate and select from the list of services designed to help you keep in touch.
+		  </p>
+
+	  </div>
+  <div class="w-full lg:w-1/4 mb-8 lg:mb-0 h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden " style="margin: 2%; padding:2%;">
+	
+	  <!-- <h2 class="text-2xl text-center lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4  ">
+		  How it Works
+	  </h2> -->
+	  <h3 class="text-2xl text-center lg:text-xxl  text-gray-800 dark:text-gray-100 mb-4 font-bold " style="margin: 5%;">
+		  Step 4 
+	  </h3>
+	  <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+		Finally, you'll need to register an account with Victim Assist, and we'll provide you with your loved one's contact information. (Don't worry, registration is completely free!)
+	  </p>
+	  
+  </div>
+</div>
+	
+		
+	
+
+</section>
+<div class="sm:text-lg text-gray-600 dark:text-gray-300 lg:mx-auto opener">
+	<section class="correction_section4" id="sid1">
+		<div class="container">
+			
+					<div class="">
+						<h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">What is Jail Mail?</h2><br/>
+					<p>Incarceration is tough. Interacting with loved ones seems to be especially challenging at times for inmates. To make it less difficult for both inmates and their families, {facilityName} started inmate mailing so families can <a href="/">stay in touch with their inmates.</a> Sending mail has always been an effective way to communicate with your loved ones. Contact {facilityName} for the mailing address. Note dropping off mail is not permitted by {facilityName}.</p>
+					
+					</div>
+		
+		</div>
+	</section>
+	<section class="correction_section5" id="sid2">
+		<div class="container">
+			<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to Send Mail to an Inmate at {facilityName}</h2> <br/>
+			<div class="">
+						<p>To send mail to an inmate, contact the {facilityName} to check the rules and regulations. {facilityName} is strict about their policies because security must be maintained at all times. Contact the facility for your inmate's details such as their full name and prisoner id. Referencing correct information is required when sending mail. Mail to this facility may have to be in a white standard envelope. For more details and help reach out to Victim Assist!</p>
+			</div>
+					
+		
+			</div>
+			
+		
+	</section>
+	<section class="correction_section4" id="sid3">
+		<div class="container">
+			
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to Find Someone in Jail</h2> <br/>
+						<p>Victim Assist's <a href="/jail-prisons">Inmate Locator</a> is a database containing information about all the inmates facing their correctional period. It is a helpful tool that allows you to find their details, such as their location, the date of joining and releasing, and other information. {facilityName} updates their location daily in <a href="/jail-prisons/">Inmate Locator</a> to ensure that their details are complete and accurate.
+					</p>
+					<div class="btn cstm-temp"><a href="/jail-prisons">Find your Inmate Today!</a></div>
+					</div>
+
+		</div>
+	</section>
+	<section class="correction_section5" id="sid4">
+		<div class="container">
+			<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Jail Mail - {facilityName}</h2> <br/>
+			<div class="">
+				<p>The {facilityName} has a jail mail account where inmates can send and receive mail from their loved ones. To sign up for the service, families need to contact {facilityName} for their inmate's ID and name. Signing up is easy, and the facility makes sure your inmate receives all the messages from you without any delays. {facilityName} has all the right to detain inappropriate messages and block any user for security reasons. For more information contact<a href="/"> Victim Assist.</a></p>
+
+			</div>
+
+			</div>	
+		
+	</section>
+	<section class="correction_section6" id="sid5">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Smart Jail Mail - {facilityName}</h2> <br/>
+					<p>Smart Jail Mail connects families and friends with their inmates through online communication within minutes. You don't have to wait for your mail to be sent to your inmate. With just one click, Smart Jail Mail will conveniently deliver your message to them. <a href="/contact/">Contact</a> {facilityName} to see if Smart Mail is available and sign up to start communicating easily with your inmate.</p>
+					</div>	
+				</div>
+			
+	</section>
+	<section class="correction_section5" id="sid6">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Corrlinks at {facilityName}</h2> <br/>
+					<p>{facilityName} has verified <a href="/blog/corrlinks-connecting-inmates-with-the-outside-world">Corrlinks</a> as their communication partner. Now you can connect with your inmate by signing up with Corrlinks. Contact a  <a href="/blog/corrlinks-connecting-inmates-with-the-outside-world">Corrlinks</a> agent to register and start sending mail to your loved ones at very convenient and affordable rates.
+	</p>
+					</div>
+					
+				</div>
+			
+	</section>
+	<section class="correction_section6" id="sid7">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Active Inmates at {facilityName}</h2> <br/>
+					<p>Every facility has a list of active inmates with details on their correctional period. The facility uses this for transferring and releasing the inmate. To view the status of your inmate, check with {facilityName}. The facility list is updated every time an inmate is released or transferred to another facility. For more information contact <a href="/">Victim Assist</a>.
+	</p>
+					</div>
+					
+				</div>
+			
+	</section>
+	<section class="correction_section5" id="sid8">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">What to Write to Someone in Jail</h2> <br/>
+					<p><a href="/write-a-prisoner">To write and send letters to your inmate</a>, contact {facilityName} for their mailing address and booking number. 
+						On the envelope, write the name and booking number with the facility's address. Also, mention your details at the bottom of the envelope. Be sure not to mention any confidential or inappropriate messages in the letter, as every letter is opened, read, and inspected by the facility before it is delivered. <a href="/contact/">Contact</a> the {facilityName} for a list of prohibited items if you plan to send something to your inmate.
+	</p>
+					</div>
+					
+				</div>
+			
+	</section>
+	<section class="correction_section6" id="sid9">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">How to Email an Inmate Online - {facilityName}</h2> <br/>
+					<p>By signing up with Corrlinks, you may be able to send emails to your inmate online. <a href="/contact/">Contact</a> {facilityName} for your inmate's details and to sign up for mailing. Make sure to check for any additional rules or regulations.</p>
+					</div>
+					
+				</div>
+			
+	</section>
+	<section class="correction_section5" id="sid10">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">When Do Inmates Receive Mail at {facilityName}?</h2> <br/>
+					<p>Mail is delivered Mondays through Fridays, except on legal holidays. There is no limit to the amount of mail someone can receive. However, excessive pictures and letters may delay their distribution. Each letter or package gets screened by the {facilityName} before delivery. Letters containing obscene or inappropriate messages will get blocked for security reasons.</p>
+					</div>
+					
+				</div>
+			
+	</section>
+	<section class="correction_section6" id="sid11">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl"> {facilityName} Mail Rules</h2> <br/>
+					<p>Mail rules often vary from facility to facility. {facilityName} has no limit for the number of pages in a letter that an inmate can receive. Nothing larger than 8 inches wide or 10 inches tall is permitted. Photos can be sent but must either be on plain white paper or photo paper. Note, Polaroid is not allowed. Sending obscene messages and conducting business by mail is forbidden. All incoming mail needs to have correct details (full name, booking number, facility address). The use of abbreviations in a letter is prohibited. Mail containing pictures or messages outside of the envelope will be restricted and declined.
+	</p>
+					</div>
+					
+				</div>
+			
+	</section>
+	<section class="correction_section5" id="sid12">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Jail Mail App</h2> <br/>
+					<p>With the Jail Mail app, you can write letters, send photos and money directly from your phone. {facilityName} has listed the app both for android and iPhone users. Now with just one click, you can send messages to your inmate from anywhere.</p>
+					</div>
+					
+				</div>
+			
+	</section>
+	<section class="correction_section6" id="sid13">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Postcard Mail</h2> <br/>
+					<p>Postcards are a convenient way to communicate with your inmate. You can customize your postcard by adding your photo to it, a perfect solution to sending personal pictures without the hassle. Contact the {facilityName} for the restrictions on a postcard as some facilities only allow photos on the graphic side of a postcard. Nudity, glue, and tape are not allowed.</p>
+					</div>
+					<div class="btn cstm-btn">
+					<a href="/send-postcards-to-inmates">Get started with postcards today!</a>
+					</div>
+					
+				</div>
+			
+	</section>
+	<section class="correction_section5" id="sid14">
+		<div class="container">
+		
+					<div class="">
+						<br/> <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Inmate Mail Examples</h2> 
+					<p>Below are some examples mentioned by the {facilityName} for you to follow before sending any mail to your inmates.</p>
+					</div><br/>
+					<div class="content-box">
+						<h3 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-xl">Parole Support Letter</h3>
+					<p>These are letters that are written by an incarcerated person or by his/her supporters. Parole letters are official communication letters that should include a letterhead, including the contact information and address of the Parole board. Make sure the content of the letter is correct and appropriate.</p> <br/>
+					</div>
+					<div class="content-box">
+						<h3 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-xl">Letter of Incarceration</h3>
+					<p>An individual can obtain a Letter of Incarceration from {facilityName} record division. Anyone wanting a Letter of Incarceration must come to the {facilityName} and show valid ID proof. Friends and families of inmates cannot request a Letter of Incarceration on behalf of another individual. Verbal requests are not accepted to obtain a Letter of Incarceration. An attorney can request {facilityName} to acquire a Letter of Incarceration for their clients.
+	</p><br/>
+					</div>
+					<div class="content-box">
+						<h3 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-xl">Inmate Letter to Judge</h3>
+					<p>Make sure the letter is professional and does not contain any slang and inappropriate messages. The letter should be addressed to the judge, including their name, title, and address.</p><br/>
+					</div>
+				</div>
+			
+	</section>
+	<section class="correction_section6" id="sid15">
+		<div class="container">
+		 <h2 class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl">Questions? Contact Us</h2> <br/>
+					<p>We believe in going above and beyond for our customers. If you prefer to speak to one of our executives for any clarification, you can reach us at:
+	Number: 1.800.323.9895
+	Email: support@pigeon.ly
+	</p>
+					
+		<div id="reviewShowcaseWidget" style="padding-bottom: 2%;padding-left: 5%;padding-right: 5%;"><div id="reviewShowcaseWidgetInner" class="stjr-widget"></div></div>	
+				</div>
+			
+	</section>
+	<section class="correction_section6">
+		<div class="container">
+		<h3  class="mt-1 text-xl leading-6 font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-xl">Disclaimer</h3>
+					<p>You may not use our service or the information it provides to make decisions about consumer credit, employment, insurance, tenant screening, or any other purpose that would require FCRA compliance.</p>
+					
+					
+				</div>
+			
+	</section>
+</div>
+<style>
+    a{
+        color: #00a2ff;
+    }
+
+</style>

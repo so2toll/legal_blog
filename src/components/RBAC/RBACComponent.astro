@@ -1,0 +1,161 @@
+---
+import { RBAC_CONFIG } from '../../lib/configs/rbacConfig.js';
+
+let {userRole, userId, data, currentPage} = Astro.props;
+
+// Initialize component variables
+let SideNavComponent, TopNavComponent, ContentComponent, FooterComponent, title, description;
+
+// Safety check - this should never happen if validation is done in parent pages
+// but adding as an extra safety net
+try {
+    if (!RBAC_CONFIG[userRole] || !RBAC_CONFIG[userRole][currentPage]) {
+        console.error('RBAC Component Error: Invalid role or page configuration', {userRole, currentPage});
+        // Redirect to access denied page as a fallback
+        return Astro.redirect('/access-denied?reason=invalid_role&page=' + currentPage);
+    }
+    
+    SideNavComponent = RBAC_CONFIG[userRole][currentPage].sideNav;
+    TopNavComponent = RBAC_CONFIG[userRole][currentPage].topNav;
+    ContentComponent = RBAC_CONFIG[userRole][currentPage].content;
+    FooterComponent = RBAC_CONFIG[userRole][currentPage].footer;
+    title = RBAC_CONFIG[userRole][currentPage].title;
+    description = RBAC_CONFIG[userRole][currentPage].description;
+} catch (error) {
+    console.error('RBAC Component Configuration Error:', error);
+    return Astro.redirect('/access-denied?reason=invalid_role&page=' + currentPage);
+}
+
+
+
+---
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <title>Dashboard - CarrGo Dashboard</title> -->
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="icon" href="/images/victim-assistLogoBlack.svg"></link>
+<!-- Bootstrap CSS -->
+<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+<!-- Remix Icons CSS -->
+<link href="/assets/fonts/remixicon.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+<!-- Favicon -->
+<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+<!-- Meta Tags for SEO -->
+<!-- <meta name="description" content="CarPool Dashboard - Manage your rides, drivers, and fleet efficiently"> -->
+<meta name="keywords" content="carpool, dashboard, ride-sharing, transportation management">
+<!-- Open Graph Tags -->
+<meta property="og:title" content="Dashboard - CarPool Dashboard">
+<meta property="og:description" content="CarPool Dashboard - Manage your rides, drivers, and fleet efficiently">
+<meta property="og:type" content="website">
+<!-- Mobile Theme Color -->
+<meta name="theme-color" content="#4a6cf7">
+
+<body>
+    <!-- Include Sidebar -->
+    <!-- Sidebar -->
+
+
+<!-- Mobile Sidebar Overlay - moved outside sidebar for better event handling -->
+
+    <div class="main-content">
+        <!-- Include Header -->
+        <!-- Header -->
+
+<div class="mobile-sidebar-overlay" id="mobile-sidebar-overlay" role="button" tabindex="0" aria-label="Close sidebar"></div>
+
+
+
+  <!-- <div x-data="{ open: false }" class="wrapper overflow-x-hidden"> -->
+      <!-- Side Navbar -->
+      <SideNavComponent userRole={userRole} userId={userId} />
+      <!-- End Side Navbar -->
+  
+      <div  class="flex flex-col ltr:ml-64 rtl:mr-64 min-h-screen transition-all duration-500 ease-in-out">
+          <!-- Navbar -->
+          <TopNavComponent userRole={userRole} userId={userId} title={title} />
+          <!-- End Navbar -->
+  
+          <!-- Main Content -->
+          <ContentComponent data={data} userRole={userRole} userId={userId}  />
+          <!-- End Main Content -->
+  
+          <!-- Footer -->
+          <FooterComponent />
+          <!-- End Footer -->
+      </div>
+  <!-- </div> -->
+    </div>
+    </body>
+  </html>
+
+   <!-- JavaScript Dependencies -->
+    <!-- Vendor Scripts -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script is:inline src="/assets/js/vendor/bootstrap.bundle.min.js"></script>
+<script is:inline src="/assets/js/vendor/chart.umd.js"></script>
+<script is:inline src="/assets/js/main.js"></script>
+<script is:inline>
+    //dropdown fix - add as a separate script
+(function() {
+    // Wait for page to fully load
+    window.addEventListener('load', function() {
+        // Add click handlers directly to all dropdown toggles
+        document.querySelectorAll('li.has-dropdown > a').forEach(function(toggle) {
+            toggle.onclick = function(e) {
+                e.preventDefault();
+                
+                // Find target menu
+                var targetId = this.getAttribute('href') || this.getAttribute('data-bs-target');
+                var menu = document.querySelector(targetId);
+                
+                if (!menu) return false;
+                
+                // Toggle this menu
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                    this.setAttribute('aria-expanded', 'false');
+                } else {
+                    // Close all other menus
+                    document.querySelectorAll('.submenu').forEach(function(m) {
+                        m.style.display = 'none';
+                    });
+                    
+                    // Open this menu
+                    menu.style.display = 'block';
+                    this.setAttribute('aria-expanded', 'true');
+                }
+                
+                return false;
+            };
+        });
+        
+        // Set active page
+        var path = window.location.pathname;
+        document.querySelectorAll('.submenu a').forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (href === path || href === path.substring(1) || '/' + href === path) {
+                // Mark as active
+                link.classList.add('active');
+                
+                // Show parent menu
+                var menu = link.closest('.submenu');
+                if (menu) {
+                    menu.style.display = 'block';
+                    
+                    // Mark parent as active
+                    var parent = document.querySelector('a[href="#' + menu.id + '"]');
+                    if (parent) {
+                        parent.classList.add('active-parent');
+                        parent.setAttribute('aria-expanded', 'true');
+                    }
+                }
+            }
+        });
+    });
+})();
+</script>

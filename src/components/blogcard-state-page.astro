@@ -1,0 +1,63 @@
+---
+import type { MarkdownInstance } from 'astro'
+import type { Frontmatter } from '../config'
+
+
+export interface Props {
+  facilityPaths?:{facilityName:string, dateModified:string, facilityPath:string}[],
+  statePath?:string,
+  facilityName?:string,
+  type?:string,
+  stateName?:string,
+  dateModified?:string,
+  data?:[],
+
+}
+
+
+// const { facilityPaths, statePath,  stateName, dateModified, type  } = Astro.props
+const { data  } = Astro.props as any
+
+// console.log("ths the data", data)
+
+
+---
+
+
+
+
+<section class="p-4 ">
+  <div
+    class="h-full border-1 border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden p-2"
+  >
+  
+    <div class="p-6">
+      <!-- <Categories categories={"post.frontmatter.categories"} /> -->
+     
+        <h1
+          class="title-font text-xl font-bold text-cyan-600 hover:text-pink-600 dark:text-cyan-300 dark:hover:text-pink-300 mt-2"
+        >
+        <a  href={`/jail-prisons/${data.stateName}/${data.path}/${data.slug}`}> 
+            {data.facilityName}
+            </a>  
+        <!-- {data.facilityName} ggg -->
+        </h1>
+    
+      <div class="flex items-center flex-wrap">
+    
+  
+        {"post.frontmatter.author" && (
+          <span
+          class="text-gray-500 dark:text-gray-400 inline-flex items-center leading-none text-xs"
+          >
+          
+          {"Updated on: " + data.updatedOn}
+          
+          </span>
+        )}
+      </div>
+
+    </div>
+  </div>
+</section>
+

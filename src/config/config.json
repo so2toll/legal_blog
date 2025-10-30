@@ -1,0 +1,36 @@
+{
+  "site": {
+    "title": "Victim Assist | Blog",
+    "base_url": "https://victim-assist.com/blog",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/Victim Assistfavicon.png",
+    "logo": "/images/bg-logo-3.png",
+    "logo_width": "150",
+    "logo_height": "70",
+    "logo_text": "Victim Assist",
+    "logo_margin":"-10%"
+  },
+
+  "settings": {
+    "pagination": 5,
+    "summary_length": 100
+  },
+
+  "metadata": {
+    "meta_author": "Victim Assist",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Victim Assist"
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2024 Victim Assist"
+  },
+
+  "contactinfo": {
+    "address": "Victim Assist<br/> Atlanta, GA 30083",
+    "email": "info@victim-assist.com",
+    "phone": "+1-800-123-1234"
+  }
+}

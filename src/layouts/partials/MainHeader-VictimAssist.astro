@@ -1,0 +1,243 @@
+---
+// MainHeader-VictimAssist.astro
+// Astro component (Tailwind CSS) — accessible, SEO-friendly header with dropdowns & mobile menu
+// Updated: improved desktop dropdown hover behavior (mouseenter/mouseleave) to prevent menu disappearing when moving cursor from parent to dropdown.
+// Usage: import MainHeader from '../components/MainHeader-VictimAssist.astro'
+// Assumes Tailwind configured. No external libraries required.
+---
+
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <!-- Logo -->
+          <div class="flex-shrink-0 flex items-center">
+            <a href="/" aria-label="Victim Assist home" class="inline-flex items-center gap-3">
+              <!-- simple shield icon SVG -->
+              <svg class="w-9 h-9 text-blue-700" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M12 2L3 7v6c0 5 3.6 9.4 9 11 5.4-1.6 9-6 9-11V7l-9-5z" fill="currentColor" />
+                <rect x="8" y="11" width="8" height="7" rx="1" fill="#fff" />
+              </svg>
+              <span class="text-lg font-semibold tracking-tight text-gray-900">Victim Assist</span>
+            </a>
+          </div>
+  
+          <!-- Desktop nav -->
+          <nav class="hidden lg:ml-8 lg:flex lg:space-x-4 lg:items-center" aria-label="Main Navigation">
+  
+            <!-- How it works (simple link) -->
+            <a href="/how-it-works" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-700">How it works</a>
+  
+            <!-- Resources (dropdown) -->
+            <div class="relative has-dropdown" data-dropdown>
+              <button aria-expanded="false" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-700 inline-flex items-center gap-2">
+                Resources
+                <svg class="w-4 h-4 text-gray-500 group-hover:text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.586l3.71-4.356a.75.75 0 111.14.976l-4.25 5a.75.75 0 01-1.14 0l-4.25-5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+  
+              <!-- Dropdown menu (now uses class .dropdown-menu and is kept open via JS) -->
+              <div class="dropdown-menu absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transform scale-y-95 origin-top transition-all duration-150 opacity-0 pointer-events-none z-50">
+                <div class="py-1">
+                  <a href="/resources/hotlines" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Hotlines & Crisis</a>
+                  <a href="/resources/legal-aid" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Legal aid</a>
+                  <a href="/resources/counseling" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Counseling & Therapy</a>
+                  <a href="/resources/shelters" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Shelters & Safe Housing</a>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Crime (dropdown) -->
+            <div class="relative has-dropdown" data-dropdown>
+              <button aria-expanded="false" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-700 inline-flex items-center gap-2">
+                Crime Types
+                <svg class="w-4 h-4 text-gray-500 group-hover:text-blue-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.586l3.71-4.356a.75.75 0 111.14.976l-4.25 5a.75.75 0 01-1.14 0l-4.25-5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+  
+              <div class="dropdown-menu absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transform scale-y-95 origin-top transition-all duration-150 opacity-0 pointer-events-none z-50">
+                <div class="py-1">
+                  <a href="/crime/domestic-violence" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Domestic Violence</a>
+                  <a href="/crime/assault" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Assault & Battery</a>
+                  <a href="/crime/robbery" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Robbery & Theft</a>
+                  <a href="/crime/homicide" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Homicide (family support)</a>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Cities (simple link) -->
+            <a href="/cities" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-700">Cities</a>
+  
+            <!-- Blog & About -->
+            <a href="/blog" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-700">Blog</a>
+            <a href="/about" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-700">About</a>
+          </nav>
+        </div>
+  
+        <!-- Right side: CTA and mobile button -->
+        <div class="flex items-center">
+          <div class="hidden lg:flex lg:items-center lg:space-x-3">
+            <a href="/apply" class="px-3 py-2 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700">Start Application</a>
+            <a href="tel:1-800-XXX-XXXX" class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-700">Call Helpline</a>
+          </div>
+  
+          <!-- Mobile menu button -->
+          <div class="-mr-2 flex lg:hidden">
+            <button id="main-mobile-toggle" aria-controls="mobile-menu" aria-expanded="false" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon: hamburger -->
+              <svg id="icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg id="icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mobile menu, show/hide based on button state. -->
+    <div id="mobile-menu" class="lg:hidden hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+        <a href="/how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">How it works</a>
+  
+        <!-- Mobile expandable Resources -->
+        <details class="group" aria-labelledby="resources-mobile">
+          <summary id="resources-mobile" class="flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer">
+            Resources
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+              <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.586l3.71-4.356a.75.75 0 111.14.976l-4.25 5a.75.75 0 01-1.14 0l-4.25-5a.75.75 0 01.02-1.06z" />
+            </svg>
+          </summary>
+          <div class="pl-4">
+            <a href="/resources/hotlines" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">Hotlines & Crisis</a>
+            <a href="/resources/legal-aid" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">Legal aid</a>
+            <a href="/resources/counseling" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">Counseling</a>
+            <a href="/resources/shelters" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">Shelters</a>
+          </div>
+        </details>
+  
+        <!-- Mobile expandable Crime Types -->
+        <details class="group" aria-labelledby="crime-mobile">
+          <summary id="crime-mobile" class="flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 cursor-pointer">
+            Crime Types
+            <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden>
+              <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.586l3.71-4.356a.75.75 0 111.14.976l-4.25 5a.75.75 0 01-1.14 0l-4.25-5a.75.75 0 01.02-1.06z" />
+            </svg>
+          </summary>
+          <div class="pl-4">
+            <a href="/crime/domestic-violence" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">Domestic Violence</a>
+            <a href="/crime/assault" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">Assault</a>
+            <a href="/crime/robbery" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">Robbery</a>
+            <a href="/crime/homicide" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">Homicide</a>
+          </div>
+        </details>
+  
+        <a href="/cities" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Cities</a>
+        <a href="/blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Blog</a>
+        <a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">About</a>
+  
+        <div class="mt-3 px-3 space-y-2">
+          <a href="/apply" class="block w-full text-center px-4 py-2 rounded-md bg-blue-600 text-white font-medium">Start Application</a>
+          <a href="tel:1-800-XXX-XXXX" class="block w-full text-center px-4 py-2 rounded-md border border-gray-200 font-medium">Call Helpline</a>
+        </div>
+      </div>
+    </div>
+  
+    <style>
+      /* Desktop dropdown visible state — controlled by JS toggling .open on .has-dropdown */
+      .has-dropdown .dropdown-menu {
+        transition: opacity 160ms ease, transform 160ms ease;
+      }
+      .has-dropdown.open .dropdown-menu {
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
+      }
+  
+      /* Ensure dropdown sits flush under button — avoids hover gap */
+      .dropdown-menu {
+        top: calc(100% + 6px);
+      }
+    </style>
+  
+    <script>
+    // Improved dropdown behavior + safe mobile icon toggling
+    (function () {
+      if (typeof window === 'undefined') return;
+      const mql = window.matchMedia('(min-width: 1024px)');
+  
+      function setupDropdowns () {
+        const dropdowns = document.querySelectorAll('.has-dropdown');
+        dropdowns.forEach((wrap) => {
+          const menu = wrap.querySelector('.dropdown-menu');
+          if (!menu) return;
+  
+          // Timer used to debounce the close so small pointer gaps don't hide the menu
+          let closeTimer = null;
+  
+          const openMenu = () => {
+            if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+            wrap.classList.add('open');
+            const btn = wrap.querySelector('button');
+            if (btn) btn.setAttribute('aria-expanded', 'true');
+          };
+          const closeMenu = () => {
+            // small delay to allow pointer to move into the menu without accidental close
+            if (closeTimer) clearTimeout(closeTimer);
+            closeTimer = setTimeout(() => {
+              wrap.classList.remove('open');
+              const btn = wrap.querySelector('button');
+              if (btn) btn.setAttribute('aria-expanded', 'false');
+              closeTimer = null;
+            }, 160);
+          };
+  
+          wrap.addEventListener('mouseenter', openMenu);
+          wrap.addEventListener('mouseleave', closeMenu);
+  
+          // keep open when pointer enters the menu itself
+          menu.addEventListener('mouseenter', openMenu);
+          menu.addEventListener('mouseleave', closeMenu);
+  
+          // keyboard accessibility: show on focus, hide on blur
+          const btn = wrap.querySelector('button');
+          if (btn) {
+            btn.addEventListener('focus', openMenu);
+            btn.addEventListener('blur', () => setTimeout(closeMenu, 120));
+          }
+        });
+      }
+  
+      function handleResize () {
+        // initialize when on desktop breakpoint
+        if (mql.matches) setupDropdowns();
+      }
+  
+      handleResize();
+      if (mql.addEventListener) mql.addEventListener('change', handleResize);
+      else if (mql.addListener) mql.addListener(handleResize);
+  
+      // Mobile menu toggle with safe null checks for icons
+      const btn = document.getElementById('main-mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+  
+      if (btn && menu) {
+        btn.addEventListener('click', function () {
+          menu.classList.toggle('hidden');
+          if (iconOpen) iconOpen.classList.toggle('hidden');
+          if (iconClose) iconClose.classList.toggle('hidden');
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+        });
+      }
+    })();
+  </script>
+  </header>
+  

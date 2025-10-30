@@ -1,0 +1,175 @@
+---
+---
+
+  
+   <!-- Booking/Scheduling Interface -->
+   <div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">Schedule a Ride</h5>
+        <div>
+            <button class="btn btn-outline-secondary me-2" id="viewCalendarBtn">
+                <i class="ri-calendar-line me-1"></i> Calendar View
+            </button>
+            <button class="btn btn-outline-secondary" id="viewListBtn">
+                <i class="ri-list-check me-1"></i> List View
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <!-- Booking Form Column -->
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <form id="bookingForm">
+                    <div class="mb-3">
+                        <label for="rideType" class="form-label">Ride Type</label>
+                        <select class="form-select" id="rideType" required>
+                            <option value="" selected disabled>Select ride type</option>
+                            <option value="standard">Standard</option>
+                            <option value="premium">Premium</option>
+                            <option value="shared">Shared</option>
+                            <option value="xl">XL (6+ passengers)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="pickupLocation" class="form-label">Pickup Location</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="ri-map-pin-line"></i></span>
+                            <input type="text" class="form-control" id="pickupLocation" placeholder="Enter pickup address" required>
+                            <button class="btn btn-outline-secondary" type="button" id="pickupMapBtn">
+                                <i class="ri-map-2-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="destination" class="form-label">Destination</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="ri-map-pin-fill"></i></span>
+                            <input type="text" class="form-control" id="destination" placeholder="Enter destination address" required>
+                            <button class="btn btn-outline-secondary" type="button" id="destinationMapBtn">
+                                <i class="ri-map-2-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="pickupDate" class="form-label">Pickup Date</label>
+                            <input type="date" class="form-control" id="pickupDate" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="pickupTime" class="form-label">Pickup Time</label>
+                            <input type="time" class="form-control" id="pickupTime" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="recurringRide">
+                            <label class="form-check-label" for="recurringRide">
+                                Schedule as recurring ride
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div id="recurringOptions" class="mb-3 d-none">
+                        <label class="form-label">Recurrence Pattern</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="recurMonday" name="recurDays">
+                                <label class="form-check-label" for="recurMonday">Mon</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="recurTuesday" name="recurDays">
+                                <label class="form-check-label" for="recurTuesday">Tue</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="recurWednesday" name="recurDays">
+                                <label class="form-check-label" for="recurWednesday">Wed</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="recurThursday" name="recurDays">
+                                <label class="form-check-label" for="recurThursday">Thu</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="recurFriday" name="recurDays">
+                                <label class="form-check-label" for="recurFriday">Fri</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="recurSaturday" name="recurDays">
+                                <label class="form-check-label" for="recurSaturday">Sat</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="recurSunday" name="recurDays">
+                                <label class="form-check-label" for="recurSunday">Sun</label>
+                            </div>
+                        </div>
+                        <div class="mt-2">
+                            <label for="recurUntil" class="form-label">Recur Until</label>
+                            <input type="date" class="form-control" id="recurUntil">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="passengers" class="form-label">Number of Passengers</label>
+                        <input type="number" class="form-control" id="passengers" min="1" max="10" value="1" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">Special Instructions</label>
+                        <textarea class="form-control" id="notes" rows="2" placeholder="Any special requirements or instructions"></textarea>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">Schedule Ride</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Map and Route Preview Column -->
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h6 class="card-title mb-0">Route Preview</h6>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="routeMap" class="route-map" style="min-height: 300px;">
+                            <div class="map-placeholder d-flex flex-column align-items-center justify-content-center h-100">
+                                <i class="ri-map-2-line mb-2" style="font-size: 3rem; opacity: 0.5;"></i>
+                                <p class="text-muted mb-0">Enter pickup and destination locations</p>
+                                <div class="route-simulation mt-4 d-none">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <i class="ri-map-pin-2-fill text-success"></i>
+                                        <span class="pickup-location">Pickup Location</span>
+                                    </div>
+                                    <div class="route-line my-2"></div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="ri-map-pin-2-fill text-danger"></i>
+                                        <span class="destination-location">Destination</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="routeDetails" class="p-3 border-top d-none">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Estimated Distance:</span>
+                                <strong id="estimatedDistance">--</strong>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Estimated Time:</span>
+                                <strong id="estimatedTime">--</strong>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <span>Estimated Fare:</span>
+                                <strong id="estimatedFare">--</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+  
