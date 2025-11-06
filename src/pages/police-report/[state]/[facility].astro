@@ -1,0 +1,226 @@
+---
+import type { MarkdownInstance, Page, PaginateFunction } from 'astro'
+import type { Frontmatter } from '../../../config'
+import { SiteMetadata, PAGE_SIZE } from '../../../config'
+import Base from '../../../layouts/base-2.astro'
+// import  { getNameFunc } from './helpers.astro'
+// import PageHero from '../../../components/pagehero.astro'
+import FacilityBlogRoll from '../../../components/blogroll/blogroll-facility-page.astro'
+// import PaginateControl from '../../../components/paginatecontrol.astro'
+// import Hero from '../../../components/hero/hero.astro'
+import TopSection from '../../../components/facilitypagesections/sections.astro'
+import BodySections from '../../../components/facilitypagesections/body-sections.astro'
+// import FindOutMore from '../../../components/findoutmore/findoutmore.astro'
+import neo4j from 'neo4j-driver'
+// import { getNetlifyGraphTokenForBuild } from '@netlify/functions'
+
+export interface Props {
+  stateName?: string,
+  state: any
+  
+}
+
+Astro.response.headers.set('Cache-Control', 'max-age=0, s-maxage=604800, stale-while-revalidate=59')
+
+let { state, facility } = Astro.params;
+ 
+const {post} = Astro.props;
+const {updatedOn, title, path, facilityName, county,   stateName, slug} = post.props.post
+const cleanState = post.props.post.state;
+
+// console.log(2323,post);
+export function getTitleDesc(cleanState:string, facilityName:string, county:string) {
+
+  let title = facilityName + " Inmate Lookup | "  + cleanState;
+  title = title.length > 60 ? facilityName + " | "  + cleanState : title
+
+  let desc = `Free inmate locator to any ${county}, ${cleanState} DOC facility. Save 70% on jail and prison calls, photos, mail letters, commissary |  All County Jail, Federal BOP & State Prisons`
+
+  
+
+  desc = desc.length > 200 ? `Free inmate locator to any ${county}, ${cleanState} DOC facility. Save 70% on jail and prison calls, photos, mail letters, commissary nationwide`
+  : desc
+
+    return {title, desc}
+}
+
+let finalTitlDesc = getTitleDesc(cleanState, facilityName, county);
+
+const frontmatter: Frontmatter = {
+  title: finalTitlDesc.title,
+  description: finalTitlDesc.desc, 
+  publishDate: SiteMetadata.buildTime,
+}
+
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+
+
+// const noslug = await fetch(
+//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-7'
+// ).then((res) => res.json());
+
+// const noApiNoSlug = await fetch(
+//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-no-slug-lg'
+// ).then((res) => res.json());
+
+// const noslug = await fetch(
+//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-7.json'
+// ).then((res) => res.json());
+
+// const noApiNoSlug = await fetch(
+//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-no-slug-lg.json'
+// ).then((res) => res.json());
+
+// const noslug = await fetch(
+//   'https://victim-assist-prod-blog-so2toll-victim-assist.vercel.app/neoapi/neo-api-7.json'
+// ).then((res) => res.json());
+
+// const noApiNoSlug = await fetch(
+//   'https://victim-assist-prod-blog-so2toll-victim-assist.vercel.app/neoapi/neo-api-no-slug-lg.json'
+// ).then((res) => res.json());
+
+
+// const noslug = await fetch(
+//   'http://localhost:8888/.netlify/functions/neo-api-7'
+// ).then((res) => res.json());
+
+// const noApiNoSlug = await fetch(
+//   'http://localhost:8888/.netlify/functions/neo-api-no-slug-lg'
+// ).then((res) => res.json());
+
+// const noslug = await fetch(
+//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-7.json'
+// ).then((res) => res.json());
+
+// const noApiNoSlug = await fetch(
+//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-no-slug-lg.json'
+// ).then((res) => res.json());
+
+
+// const send_inmate_money_lg  = await fetch(
+//   'https://victim-assist-prod-blog.vercel.app/neoapi/neo-api-send-inmate-money-commissary-lgjson'
+// ).then((res) => res.json());
+
+
+// let combinedResponses = [].concat(noslug.message);
+// let combinedResponses = [].concat(noApiNoSlug.message, noslug.message);
+
+
+// let finalResponses = {message:combinedResponses}
+
+let response2= {message:[
+    {
+      state: 'Alabama',
+      facility: 'hackleburg-jail',
+      title: 'Hackleburg Jail',
+      updatedOn: '12-16-2022',
+      stateName: 'alabama',
+      path: 'hackleburg-jail',
+      slug: '',
+      facilityName: 'Hackleburg Jail',
+      city: 'Hackleburg',
+      county: 'Marion County',
+      locator: 'Use Our Free Inmate Locator',
+      address: '314 First Avenue, Hackleburg, AL, 35564',
+      phone: '205-935-5195'
+    },
+    {
+      state: 'Massachusetts',
+      facility: 'new-bedford-police-jail',
+      title: 'New Bedford Police Jail',
+      updatedOn: '12-16-2022',
+      stateName: 'massachusetts',
+      path: 'new-bedford-police-jail',
+      slug: '',
+      facilityName: 'New Bedford Police Jail',
+      city: 'New Bedford',
+      county: 'Bristol County',
+      locator: 'Use Our Free Inmate Locator',
+      address: '871 Rockdale Avenue, New Bedford, MA, 02740',
+      phone: '508-991-6300'
+    },
+    {
+      state: 'Georgia',
+      facility: 'nelson-jail',
+      title: 'Nelson Jail',
+      updatedOn: '12-16-2022',
+      stateName: 'georgia',
+      path: 'nelson-jail',
+      slug: '',
+      facilityName: 'Nelson Jail',
+      city: 'Nelson',
+      county: 'Cherokee County',
+      locator: 'Use Our Free Inmate Locator',
+      address: '1985 Kennesaw Avenue\n PO Box 100, Nelson, GA, 30151',
+      phone: '770-735-2211'
+    },
+    
+  ]}
+
+
+let newFacs = response2.message.map( (res: {
+  // let newFacs = finalResponses.message.map( (res: {
+   state: string, 
+   facility: string,
+    title: string, 
+    updatedOn: string,
+    stateName:string,
+    path:string,
+    facilityName:string,
+    city: string,
+    county: string,
+    locator: string,
+    address: string,
+    phone: string,
+    slug:string
+
+}) =>{
+ 
+  let {updatedOn, title, path, facilityName,    stateName, city, county, state, facility, address, phone, locator, slug} = res
+
+  facility = facility.replace("/" , " ")
+  facilityName = facilityName.replace("/" , " ");
+  title = title.replace("/" , " ");
+  slug == undefined || slug == '' ? slug='' : slug
+
+  return { params: { state:stateName, facility }, 
+      props:  { post:{
+        title, updatedOn,stateName,path,facilityName,city,county,locator,address,phone,slug, state
+    }
+  } }
+})
+
+return newFacs.map((post: { params: any }) => {
+
+return {
+  params:  post.params as any ,
+  props: { post } };
+});
+
+}
+
+
+
+
+
+
+---
+
+
+<Base frontmatter={frontmatter}>
+  
+  <TopSection data={post}  statePath={facility as string} 
+  type={"facility-page"} stateName={state as string} facilityName={post.props.post.title as string} />
+  
+  <!-- <div><h3 style="color:red">{}</h3></div> -->
+  <FacilityBlogRoll 
+  data={post} statePath={facility as string} 
+    type={"facility-page"} stateName={state as string} facilityName={post.props.post.title as string}  />
+  
+  <BodySections data={post} stateName={state as string} statePath={facility as string} 
+  facilityName={post.props.post.title as string}  type={"facility-page"} />
+
+  <div class="p-24 md:p-12 bg-white dark:bg-black"></div>
+ 
+</Base>

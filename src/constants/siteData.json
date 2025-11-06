@@ -1,35 +1,35 @@
 {
     "default": {
-      "title": "Victim Assist Themes",
-      "description": "Victim Assist.",
+      "title": "Claims Advocacy Themes",
+      "description": "Claims Advocacy.",
       "openGraph": {
         "basic": {
-          "title": "Victim Assist ",
+          "title": "Claims Advocacy ",
           "type": "website",
           "image": "https://VictimAssist.com/og-default.jpg",
           "url": ""
         },
         "optional": {
-          "siteName": "Victim Assist Themes"
+          "siteName": "Claims Advocacy Themes"
         }
       },
       "twitter": {
         "card": "summary_large_image",
-        "site": "@Victim Assistthemes",
-        "creator": "@Victim Assistthemes"
+        "site": "@Claims Advocacythemes",
+        "creator": "@Claims Advocacythemes"
       },
       "noindex": false,
       "nofollow": false
     },
     "pages": {
       "about": {
-        "title": "About - Victim Assist Themes",
-        "description": "About Victim Assist Themes and what drives us.",
+        "title": "About - Claims Advocacy Themes",
+        "description": "About Claims Advocacy Themes and what drives us.",
         "openGraph": {
           "basic": {
-            "title": "About Victim Assist Themes",
+            "title": "About Claims Advocacy Themes",
             "type": "website",
-            "image": "https://Victim Assistthemes.com/og-about.jpg",
+            "image": "https://Claims Advocacythemes.com/og-about.jpg",
             "url": ""
           }
         }

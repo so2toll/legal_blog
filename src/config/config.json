@@ -1,14 +1,14 @@
 {
   "site": {
-    "title": "Victim Assist | Blog",
-    "base_url": "https://victim-assist.com/blog",
+    "title": "Claims Advocacy | Blog",
+    "base_url": "https://claims-advocacy.org/blog",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/Victim Assistfavicon.png",
+    "favicon": "/images/favicon-16x16.webp",
     "logo": "/images/bg-logo-3.png",
     "logo_width": "150",
     "logo_height": "70",
-    "logo_text": "Victim Assist",
+    "logo_text": "Claims Advocacy",
     "logo_margin":"-10%"
   },
 
@@ -18,19 +18,19 @@
   },
 
   "metadata": {
-    "meta_author": "Victim Assist",
+    "meta_author": "Claims Advocacy",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Victim Assist"
+    "meta_description": "Claims Advocacy"
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2024 Victim Assist"
+    "copyright": "Copyright © 2024 Claims Advocacy"
   },
 
   "contactinfo": {
-    "address": "Victim Assist<br/> Atlanta, GA 30083",
-    "email": "info@victim-assist.com",
+    "address": "Claims Advocacy<br/> Atlanta, GA 30083",
+    "email": "info@claims-advocacy.org",
     "phone": "+1-800-123-1234"
   }
 }

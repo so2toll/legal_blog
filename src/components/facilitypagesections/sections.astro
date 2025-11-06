@@ -35,7 +35,7 @@ switch (type) {
           features  = [{ name: facilityName, description: `  ${facilityName} is located in ${state}. Every correctional 
           facility has its own rules on visitation, commissary, and mail.  The ${facilityName} also has guidelines to 
           follow. Before connecting with a loved one here, you can find them using a free inmate search for ${facilityName}. 
-          Victim Assist provides a free lookup and other inmate services.`, icon: 'Search for an Inmate' }]
+          Claims Advocacy provides a free lookup and other inmate services.`, icon: 'Search for an Inmate' }]
 
               finalFeatures.push(features);
 
@@ -49,7 +49,7 @@ switch (type) {
               visitation, commissary, and mail. 
               
               Before connecting with a loved one
-              here, you can find them using a free inmate locator. Victim Assist helps you
+              here, you can find them using a free inmate locator. Claims Advocacy helps you
               add money to a trust account at ${facilityName} 
               and other services.`, icon: 'Send Money to an Inmate at '+facilityName+' ' }]
 
@@ -64,7 +64,7 @@ switch (type) {
               visitation, commissary, and mail. 
               
               Before connecting with a loved one
-              here, you can find them using a free inmate locator. Victim Assist helps you
+              here, you can find them using a free inmate locator. Claims Advocacy helps you
               add money to a trust account at ${facilityName} 
               and other services.`, icon: 'Write an Inmate at '+facilityName+' ' }]
 
@@ -80,7 +80,7 @@ switch (type) {
               visitation, commissary, and mail. 
               
               Before connecting with a loved one
-              here, you can find them using a free inmate locator. Victim Assist helps you
+              here, you can find them using a free inmate locator. Claims Advocacy helps you
               add money to a trust account at ${facilityName} 
               and other services.`, icon: 'Connect with an Inmate at '+facilityName+' ' }]
 
@@ -91,12 +91,12 @@ switch (type) {
           
           // console.log("this slug is here: blank", slug)
           features  = [{ name: facilityName, description: `  Before visiting your inmate check all the rules you need to follow. You can find an inmate 
-          at ${facilityName}  , using the Victim Assist Inmate Search 
+          at ${facilityName}  , using the Claims Advocacy Inmate Search 
           if you need help before visitng. After the visitor has been approved by the 
           correctional facility they need to check with their inmate on what days they are allowed to visit.
               
               Before connecting with a loved one
-              here, you can find them using a free inmate locator. Victim Assist helps you
+              here, you can find them using a free inmate locator. Claims Advocacy helps you
               add money to a trust account at ${facilityName} 
               and other services.`, icon: 'Connect with an Inmate at '+facilityName+' ' }]
 
@@ -110,7 +110,7 @@ switch (type) {
       features  = [{ name: facilityName, description: `  ${facilityName} is located in ${state}. Every correctional 
           facility has its own rules on visitation, commissary, and mail.  The ${facilityName} also has guidelines to 
           follow. Before connecting with a loved one here, you can find them using a free inmate search for ${facilityName}. 
-          Victim Assist provides a free lookup and other inmate services.`, icon: 'Search for an Inmate' }]
+          Claims Advocacy provides a free lookup and other inmate services.`, icon: 'Search for an Inmate' }]
         finalFeatures.push(features);
         break
     }
@@ -141,19 +141,19 @@ switch (type) {
       <nav aria-label="Breadcrumb" class="breadcrumb mt-4 max-w-2xl text-base tracking-wide text-gray-900 dark:text-gray-100 lg:mx-auto">
         <ul itemscope itemtype="http://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" itemid="https://victim-assist.com/" href="/" ><span itemprop="name">Home</span></a> 
+              <a itemprop="item" itemid="https://claims-advocacy.org/" href="/" ><span itemprop="name">Home</span></a> 
               <meta itemprop="position" content="1" />
             </li>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" itemid="https://victim-assist.com/jail-prisons/" href="/jail-prisons/"><span itemprop="name">Jails and Prison</span></a> 
+              <a itemprop="item" itemid="https://claims-advocacy.org/jail-prisons/" href="/jail-prisons/"><span itemprop="name">Jails and Prison</span></a> 
               <meta itemprop="position" content="2" />
             </li>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" itemid="https://victim-assist.com/jail-prisons/state/" href={ "/jail-prisons/" + statePath + "/1/"}  ><span itemprop="name">{state}</span></a> 
+              <a itemprop="item" itemid="https://claims-advocacy.org/jail-prisons/state/" href={ "/jail-prisons/" + statePath + "/1/"}  ><span itemprop="name">{state}</span></a> 
               <meta itemprop="position" content="3" />
             </li>
             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a itemprop="item" itemid="https://victim-assist.com/jail-prisons/facility/" href={ "/jail-prisons/"+statePath+"/"+path+"/"} ><span itemprop="name">{facilityName}</span> </a> 
+              <a itemprop="item" itemid="https://claims-advocacy.org/jail-prisons/facility/" href={ "/jail-prisons/"+statePath+"/"+path+"/"} ><span itemprop="name">{facilityName}</span> </a> 
               <meta itemprop="position" content="4" />
             </li>
             

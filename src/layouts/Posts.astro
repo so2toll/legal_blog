@@ -15,8 +15,8 @@ const { className, posts, fluid } = Astro.props;
 >
   {
     posts.map((post: any, i: number) => (
-      <div class={i === 0 && fluid != false ? "col-12" : "col-12 sm:col-6"}>
-        {post.data.image && (
+      <div class={i === 0 && fluid != false ? "col-12" : "col-12 sm:col-6"} style="border-width: thin;">
+        {/* {post.data.image && (
           <a
             href={`${import.meta.env.BASE_URL.replace(/\/?$/, '/blog/')}${post.slug}`}
             class="rounded-lg block hover:text-primary overflow-hidden group"
@@ -29,7 +29,7 @@ const { className, posts, fluid } = Astro.props;
               height={i === 0 ? 475 : 230}
             />
           </a>
-        )}
+        )} */}
         <ul class="mt-6 mb-4 flex flex-wrap items-center text-text">
           <li class="mr-5">
             {authors

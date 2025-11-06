@@ -25,20 +25,20 @@ export interface TagType {
 }
 
 export const SiteMetadata = {
-  title: 'Victim Assist',
+  title: 'Claims Advocacy',
   description: 'Use our inmate search and stay connected with your loved one. We provide you a simple, affordable way to stay in touch. Use any mobile device or desktop for unlimited calls, photo sharing &amp; more. Try for free.',
   author: {
-    name: 'Victim Assist',
-    twitter: '@Victim Assist',
-    url: 'https://victim-assist.com',
-    email: 'info@victim-assist.com',
+    name: 'Claims Advocacy',
+    twitter: '@Claims Advocacy',
+    url: 'https://claims-advocacy.org',
+    email: 'info@claims-advocacy.org',
     summary: 'Search and find your inmate in over 4,000 facilities nationwide. A simple, affordable way to stay in touch with your loved one from any device. Send pictures, letters, and more in just a few clicks.',
   },
   org: {
-    name: 'Victim Assist',
-    twitter: '@victim-assist.com',
-    url: 'https://victim-assist.com',
-    email: 'info@victim-assist.com',
+    name: 'Claims Advocacy',
+    twitter: '@claims-advocacy.org',
+    url: 'https://claims-advocacy.org',
+    email: 'info@claims-advocacy.org',
     summary:
       'Use our inmate search and stay connected with your loved one. We provide you a simple, affordable way to stay in touch. Use any mobile device or desktop for unlimited calls, photo sharing &amp; more. Try for free.',
   },
@@ -48,33 +48,33 @@ export const SiteMetadata = {
   social: [
     {
       name: 'Email',
-      link: 'mailto:info@victim-assist.com',
+      link: 'mailto:info@claims-advocacy.org',
       icon: 'envelope',
     },
     
     {
       name: 'LinkedIn',
-      link: 'https://www.linkedin.com/victim-assist.com',
+      link: 'https://www.linkedin.com/claims-advocacy.org',
       icon: 'linkedin',
     },
     {
       name: 'Facebook',
-      link: 'https://www.facebook.com/victim-assist.com',
+      link: 'https://www.facebook.com/claims-advocacy.org',
       icon: 'facebook',
     },
     {
       name: 'Instagram',
-      link: 'https://www.instagram.com/victim-assist.com',
+      link: 'https://www.instagram.com/claims-advocacy.org',
       icon: 'instagram',
     },
     {
       name: 'Twitter',
-      link: 'https://twitter.com/victim-assist.com',
+      link: 'https://twitter.com/claims-advocacy.org',
       icon: 'twitter',
     },
     {
       name: 'Github',
-      link: 'https://github.com/victim-assist.com',
+      link: 'https://github.com/claims-advocacy.org',
       icon: 'github',
     },
   ],
@@ -82,11 +82,11 @@ export const SiteMetadata = {
 }
 
 export const Logo = '../svg/astro/pigLogo.svg'
-export const LogoImage = '../images/astro/Victim AssistLogoWhite.webp'
+export const LogoImage = '../images/astro/Claims_AdvocacyLogoWhite.webp'
 export const FeaturedSVG = '../svg/undraw/undraw_design_inspiration.svg'
-export const FeaturedHowitWorksSVG = '../images/astro/Victim AssistMainHeader.webp'
+export const FeaturedHowitWorksSVG = '../images/astro/Claims_AdvocacyMainHeader.webp'
 export const DefaultSVG = '../svg/undraw/undraw_my_feed.svg'
-export const DefaultImage = '../images/astro/Victim AssistLogoWhite.webp'
+export const DefaultImage = '../images/astro/Claims_Advocacy_LogoWhite.webp'
 
 export const NavigationLinks = [
   // { name: 'Hodme', href: '' },
@@ -135,18 +135,18 @@ export function categoryDetail(category: string | undefined) {
 }
 export const AuthorDetail = [
   {
-    name: 'Steven Victim Assist',
-    description: 'Steven Victim Assist',
-    contact: 'info@victim-assist.com',
+    name: 'Steven Claims Advocacy',
+    description: 'Steven Claims Advocacy',
+    contact: 'info@claims-advocacy.org',
     image: '../images/authors/default.jpg'
   }
 ]
 
 export const DefaultAuthor = {
-  name: 'Steven Victim Assist',
+  name: 'Steven Claims Advocacy',
   image: '../images/authors/default.png',
-  contact: 'info@victim-assist.com',
-  description: 'Steven Victim Assist'
+  contact: 'info@claims-advocacy.org',
+  description: 'Steven Claims Advocacy'
 }
 
 export function authorDetail(author: string | undefined) {

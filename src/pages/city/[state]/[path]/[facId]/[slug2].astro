@@ -13,17 +13,19 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
 
 
 
-// const redirects = await fetch(
-//   'https://victim-assist-prod-blog-so2toll-victim-assist.vercel.app/neoapi/neo-api-redirects.json'
+
+// const redirects2 = await fetch(
+//   'https://claims-advocacy.org/.netlify/functions/neo-api-redirects-2'
 // ).then((res) => res.json());
 
-// const redirects = await fetch(
-//   'http://victim-assist.com/.netlify/functions/neo-api-redirects'
+// const redirects2 = await fetch(
+//   'https://victim-assist-prod-blog-so2toll-victim-assist.vercel.app/neoapi/neo-api-redirects-2.json'
 // ).then((res) => res.json());
 
-// console.log(redirects)
 
-// let combinedResponses = [].concat(redirects.message);
+
+// let combinedResponses = [].concat(redirects.message, redirects2.message);
+// let combinedResponses = [].concat(redirects2.message);
 
 // let finalResponses = {message:combinedResponses}
 
@@ -33,24 +35,15 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
     
  
  
-    {
-"path": "joe-corley-detention-facility-geo-ice",
-"statusCodeMatch": "200",
-"facId": "64459-2",
-"state": "texas",
-"LandingPage": "https://victim-assist.com/jail-prisons/texas/joe-corley-detention-facility-geo-ice/64459-2/send-inmate-money-commissary/",
-"slug": "send-inmate-money-commissary",
-"redirectUrl3": "https://victim-assist.com/jail-prisons/texas/joe-corley-detention-facility-geo-ice/send-inmate-money-commissary/"
-  },
-
+ 
   {
 "path": "catahoula-parish-jail",
 "statusCodeMatch": "200",
 "facId": "69725-2",
 "state": "louisiana",
-"LandingPage": "https://victim-assist.com/jail-prisons/louisiana/catahoula-parish-jail/69725-2/send-inmate-money-commissary/",
+"LandingPage": "https://claims-advocacy.org/jail-prisons/louisiana/acatahoula-parish-jail/69725-2/send-inmate-money-commissary/",
 "slug": "send-inmate-money-commissary",
-"redirectUrl3": "https://victim-assist.com/jail-prisons/louisiana/catahoula-parish-jail/send-inmate-money-commissary/"
+"redirectUrl3": "https://claims-advocacy.org/jail-prisons/louisiana/catahoula-parish-jail/send-inmate-money-commissary/"
   }
     
   ]
@@ -77,12 +70,15 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
 }) =>{
       
       let {path, statusCodeMatch, facId, state,    LandingPage, slug, redirectUrl3, } = res
-      slug == undefined || slug == '' ? slug=' ' : slug;
+      slug == undefined || slug == '' || slug=='null' ? slug=' ' : slug;
       // let isString = typeof state  ? slug=' ' : slug;
       state = typeof state == 'string' ? state : 'unknown';
       facId = typeof facId == 'string' ? facId : 'unknown';
       path = typeof path == 'string' ? path : 'unknown';
+      facId = typeof facId == 'string' ? facId : 'unknown';
+      path = path == 'unknown' ? 'unknown' : LandingPage.split('/jail-prisons')[1].split('/')[2];
       facId =  facId.includes('?') ? 'unknown' : facId;
+      // LandingPage = 
       
       // console.log(54545455,state)// let stateLower = state.toLowerCase();
       // facility = facility.replace(/\s/g , "-").replace("/" , " "); 
@@ -97,9 +93,9 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
   // title = title.replace("/" , " ");
       let finalUrl = { 
         
-        params: { state, path, facId, slug }, 
+        params: { state, path, facId, slug2:slug }, 
           props:  { post:{
-            path, statusCodeMatch, facId, state:state,    LandingPage, slug, redirectUrl3
+            path, facId,state, LandingPage, slug, redirectUrl3
         }
       } 
     }
@@ -110,7 +106,7 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
 })
 
   return newFacs.map((post: { params: any }) => {
-// console.log(545454545,post)
+// console.log(545454545,post) 
     return {
       params:  post.params as any ,
       props: { post } };
@@ -119,9 +115,10 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
 
 
 }
+// redirectUrl3 = redirectUrl3.replace('inmate-phone-calls', 'inmate-calling')
 
-
-// console.log("and ld slug is:", oldFacSlug, path, statusCodeMatch, state, facId, "and redirec is: ", redirectUrl3 );
+// console.log(34534545, redirectUrl3, 34534545)
+// console.log("and ldu slug is:", oldFacSlug, path, statusCodeMatch, state, facId, "and redirec is: ", redirectUrl3 );
 
 ---
 

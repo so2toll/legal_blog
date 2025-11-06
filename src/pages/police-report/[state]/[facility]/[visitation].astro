@@ -13,9 +13,9 @@ import FacilityBlogRoll from '../../../../components/blogroll/blogroll-facility-
 import Sections from '../../../../components/facilitypagesections/sections.astro'
 import BodySections from '../../../../components/facilitypagesections/body-sections.astro'
 
-// import { getProjects } from './helpers/getProjects';  
-Astro.response.headers.set('Cache-Control', 'max-age=0, s-maxage=604800, stale-while-revalidate=59')
 
+
+Astro.response.headers.set('Cache-Control', 'max-age=0, s-maxage=604800, stale-while-revalidate=59')
 let {post} = Astro.props;
 
  let { state, facility,  } = Astro.params;
@@ -36,9 +36,9 @@ let desc='';
     case 'visitation':
       
      title=facilityName + " Visitation | "  + cleanState;
-      title = title.length > 60 ? 'Visit ' + facilityName   : title
+      title = title.length > 60 ? 'Visit ' + facilityName  : title
       
-      desc = `Visiting ${facilityName} and need visit hours? | Use Victim Assist free to find any ${county} DOC inmate | Save 70% on prison calls, photos, commissary  & more.`
+      desc = `Visiting ${facilityName} and need visit hours? | Use Claims Advocacy free to find any ${county} DOC inmate | Save 70% on prison calls, photos, commissary  & more.`
   //     desc = desc.length > 200 ? `Free inmate locator to any ${county}, ${cleanState} DOC facility. Save 70% on jail and prison calls, photos, mail letters, commissary nationwide`
   //  : desc
 
@@ -49,7 +49,7 @@ let desc='';
       // $facility_name Commissary | $facility_state
       title = title.length > 60 ? facilityName + " Commissary" : title
       
-      desc =`Put money on books at ${facilityName} Inmate Trust Account. Send inmate money to any ${city}, ${cleanState} to make jail deposits free of hassle. Use Victim Assist to add prison funds today.`
+      desc =`Put money on books at ${facilityName} Inmate Trust Account. Send inmate money to any ${city}, ${cleanState} to make jail deposits free of hassle. Use Claims Advocacy to add prison funds today.`
   //     desc = desc.length > 200 ? `Free inmate locator to any ${county}, ${cleanState} DOC facility. Save 70% on jail and prison calls, photos, mail letters, commissary nationwide`
   //  : desc
 
@@ -70,7 +70,7 @@ let desc='';
       title=facilityName + " Mail | "  + cleanState; 
       title = title.length > 60 ? facilityName + " Mail"  : title
       
-      desc=`Write a Prisoner at ${facilityName} | Send inmate mail and letters to a ${county} jail, ${cleanState} prison, federal correctional facility. Use Victim Assist free of hassle for email info, inmate lookup and to on phone calls.`
+      desc=`Write a Prisoner at ${facilityName} | Send inmate mail and letters to a ${county} jail, ${cleanState} prison, federal correctional facility. Use Claims Advocacy free of hassle for email info, inmate lookup and to on phone calls.`
   //     desc = desc.length > 200 ? `Free inmate locator to any ${county}, ${cleanState} DOC facility. Save 70% on jail and prison calls, photos, mail letters, commissary nationwide`
   //  : desc
 
@@ -101,23 +101,13 @@ const frontmatter: Frontmatter = {
   description: finalTitlDesc.desc, 
   publishDate: SiteMetadata.buildTime,
 }
-// console.log(775645,finalTitlDesc,55343);
-// console.log(5535,city)
-// export let exCity = city;
-// console.log("343434adfadf", city)
-// export let exCity = city;
+
  let currentCity = finalTitlDesc;
 
  
-//  let rrtest = await getCan("currentCimmty", state);
-
-  // let nex = rrtest;
 export async function getName(state:string) {
    let finalTitlDesc = "nex";
-  // console.log(43434,finalTitlDesc,88834, state)
-  //  cleanState = cleanState
-  // state = state;
-  // console.log(39999966645, " facility name", );
+
 
   let finalName = ".replace(/-/g, ' ')";
   return finalName;
@@ -129,7 +119,6 @@ export let test = "ssstest"
 
 export let thisState = "9966775757676";
 
-// console.log(5599934343434, state,988,thisState)
 
  let piet = {
   title: finalTitlDesc.title,
@@ -137,12 +126,9 @@ export let thisState = "9966775757676";
   publishDate: SiteMetadata.buildTime,
 }
 
-
-
  const code = Astro.request.url;
 
 export let gstest = getName("piet");
-
 
 export let sfinalTitlDesc = await testGetTitleDesc("Astro", {city:"finalTitlDesc"} );
 
@@ -154,55 +140,64 @@ export async function testGetTitleDesc(cleanState:string, props:any) {
   return  cleanState
 }
 
+
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
 
 
-  // const projects = await getProjects();
-
-// const send_inmate_money = await fetch(
-//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-send-inmate-money-commissary'
+// const visitation = await fetch(
+//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-visitation'
 // ).then((res) => res.json());
 
-// const send_inmate_money_lg = await fetch(
-//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-send-inmate-money-commissary-lg'
-// ).then((res) => res.json());s
-
-// const send_inmate_money = await fetch(
-//   'http://localhost:8888/.netlify/functions/neo-api-send-inmate-money-commissary'
+// const visitation_lg = await fetch(
+//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-visitation-lg'
 // ).then((res) => res.json());
 
-// const send_inmate_money_lg = await fetch(
-//   'http://localhost:8888/.netlify/functions/neo-api-send-inmate-money-commissary-lg'
+// const visitation = await fetch(
+//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-visitation.json'
 // ).then((res) => res.json());
 
-
-// const send_inmate_money = await fetch(
-//   'http://localhost:3000/neoapi/neo-api-send-inmate-money-commissary.json'
+// const visitation_lg = await fetch(
+//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-visitation-lg.json'
 // ).then((res) => res.json());
 
-// const send_inmate_money_lg = await fetch(
-//   'http://localhost:3000/neoapi/neo-api-send-inmate-money-commissary-lg.json'
+// const visitation = await fetch(
+//   'https://victim-assist-prod-blog-so2toll-victim-assist.vercel.app/neoapi/neo-api-visitation.json'
 // ).then((res) => res.json());
 
-// const send_inmate_money = await fetch(
-//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-send-inmate-money-commissary.json'
+// const visitation_lg = await fetch(
+//   'https://victim-assist-prod-blog-so2toll-victim-assist.vercel.app/neoapi/neo-api-visitation-lg.json'
 // ).then((res) => res.json());
 
-// const send_inmate_money_lg = await fetch(
-//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-send-inmate-money-commissary-lg.json'
+// const visitation = await fetch(
+//   'http://localhost:8888/.netlify/functions/neo-api-visitation'
 // ).then((res) => res.json());
 
-// const send_inmate_money = await fetch(
-//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-send-inmate-money-commissary.json'
+// const visitation_lg = await fetch(
+//   'http://localhost:8888/.netlify/functions/neo-api-visitation-lg'
 // ).then((res) => res.json());
 
 
-// const send_inmate_money_lg  = await fetch(
-//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-send-inmate-money-commissary-lg.json'
+// sconst visitation = await fetch(
+//   'https://victim-assist-prod-blog-othy5a53n-victim-assist.vercel.app/api/neo-api-visitation.json'
+// ).then((res) => res.json());
+
+// const visitation_lg = await fetch(
+//   'https://victim-assist-prod-blog-othy5a53n-victim-assist.vercel.app/api/neo-api-visitation-lg.json'
+// ).then((res) => res.json());
+
+// const visitation = await fetch(
+//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-visitation.json'
 // ).then((res) => res.json());
 
 
-// let combinedResponses = [].concat(send_inmate_money.message, send_inmate_money_lg.message);
+// const visitation_lg  = await fetch(
+//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-visitation-lg.json'
+// ).then((res) => res.json());
+
+
+
+
+// let combinedResponses = [].concat(visitation.message, visitation_lg.message);
 
 
 // let finalResponses = {message:combinedResponses}
@@ -291,12 +286,13 @@ let newFacs = response2.message.map( (res: {
       let {updatedOn, title, path, facilityName,    stateName, city, county, state, facility, address, phone, locator, slug, slugPath} = res
       slug == undefined || slug == '' ? slug=' ' : slug;
 
+
     facility = facility.replace("/" , " ")
   facilityName = facilityName.replace("/" , " ");
   title = title.replace("/" , " ");
       let finalUrl = { 
         
-        params: { state:stateName, facility, money:slug, }, 
+        params: { state:stateName, facility, visitation:slug, }, 
           props:  { post:{
             title, updatedOn,stateName,path,facilityName,city,county,locator,address,phone,slug, state, slugPath
         }
@@ -307,6 +303,7 @@ let newFacs = response2.message.map( (res: {
     return finalUrl
 
 })
+
 
 
   return newFacs.map((post: { params: any }) => {

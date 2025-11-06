@@ -10,9 +10,9 @@ import FacilityBlogRoll from '../../../components/blogroll/blogroll-facility-pag
 // import Hero from '../../../components/hero/hero.astro'
 import TopSection from '../../../components/facilitypagesections/sections.astro'
 import BodySections from '../../../components/facilitypagesections/body-sections.astro'
-import FindOutMore from '../../../components/findoutmore/findoutmore.astro'
+// import FindOutMore from '../../../components/findoutmore/findoutmore.astro'
 import neo4j from 'neo4j-driver'
-import { getNetlifyGraphTokenForBuild } from '@netlify/functions'
+// import { getNetlifyGraphTokenForBuild } from '@netlify/functions'
 
 export interface Props {
   stateName?: string,
@@ -125,36 +125,36 @@ let response2= {message:[
       address: '314 First Avenue, Hackleburg, AL, 35564',
       phone: '205-935-5195'
     },
-    {
-      state: 'Massachusetts',
-      facility: 'new-bedford-police-jail',
-      title: 'New Bedford Police Jail',
-      updatedOn: '12-16-2022',
-      stateName: 'massachusetts',
-      path: 'new-bedford-police-jail',
-      slug: '',
-      facilityName: 'New Bedford Police Jail',
-      city: 'New Bedford',
-      county: 'Bristol County',
-      locator: 'Use Our Free Inmate Locator',
-      address: '871 Rockdale Avenue, New Bedford, MA, 02740',
-      phone: '508-991-6300'
-    },
-    {
-      state: 'Georgia',
-      facility: 'nelson-jail',
-      title: 'Nelson Jail',
-      updatedOn: '12-16-2022',
-      stateName: 'georgia',
-      path: 'nelson-jail',
-      slug: '',
-      facilityName: 'Nelson Jail',
-      city: 'Nelson',
-      county: 'Cherokee County',
-      locator: 'Use Our Free Inmate Locator',
-      address: '1985 Kennesaw Avenue\n PO Box 100, Nelson, GA, 30151',
-      phone: '770-735-2211'
-    },
+    // {
+    //   state: 'Massachusetts',
+    //   facility: 'new-bedford-police-jail',
+    //   title: 'New Bedford Police Jail',
+    //   updatedOn: '12-16-2022',
+    //   stateName: 'massachusetts',
+    //   path: 'new-bedford-police-jail',
+    //   slug: '',
+    //   facilityName: 'New Bedford Police Jail',
+    //   city: 'New Bedford',
+    //   county: 'Bristol County',
+    //   locator: 'Use Our Free Inmate Locator',
+    //   address: '871 Rockdale Avenue, New Bedford, MA, 02740',
+    //   phone: '508-991-6300'
+    // },
+    // {
+    //   state: 'Georgia',
+    //   facility: 'nelson-jail',
+    //   title: 'Nelson Jail',
+    //   updatedOn: '12-16-2022',
+    //   stateName: 'georgia',
+    //   path: 'nelson-jail',
+    //   slug: '',
+    //   facilityName: 'Nelson Jail',
+    //   city: 'Nelson',
+    //   county: 'Cherokee County',
+    //   locator: 'Use Our Free Inmate Locator',
+    //   address: '1985 Kennesaw Avenue\n PO Box 100, Nelson, GA, 30151',
+    //   phone: '770-735-2211'
+    // },
     
   ]}
 

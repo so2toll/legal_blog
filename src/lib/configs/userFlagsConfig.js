@@ -35,7 +35,7 @@
 //         sideNav: Blank,
 //         content: AgencyOnboardContent,
 //         footer: Blank,
-//         title: "Victim Assist | Onboard",
+//         title: "Claims Advocacy | Onboard",
 //         description: "Insight3d Onboard",
 //       },
 //       workspace_not_set: {
@@ -43,7 +43,7 @@
 //         sideNav: SideNav,
 //         content: AgencyDashboardContent,
 //         footer: Footer,
-//         title: "Victim Assist | Dashboard",
+//         title: "Claims Advocacy | Dashboard",
 //         description: "Insight3d Dashboard",
 //       },
 //       document: {
@@ -51,7 +51,7 @@
 //         sideNav: SideNav,
 //         content: AgencyDashboardContent,
 //         footer: Footer,
-//         title: "Victim Assist | Document",
+//         title: "Claims Advocacy | Document",
 //         description: "Insight3d Document",
 //       },
 //       // ... other pages for agency

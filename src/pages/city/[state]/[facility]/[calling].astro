@@ -14,31 +14,31 @@ import Sections from '../../../../components/facilitypagesections/sections.astro
 import BodySections from '../../../../components/facilitypagesections/body-sections.astro'
 
 
-Astro.response.headers.set('Cache-Control', 'max-age=0, s-maxage=604800, stale-while-revalidate=59')
+//add cache control on api calls
+// Astro.response.headers.set('Cache-Control', 'max-age=0, s-maxage=604800, stale-while-revalidate=59')
+//split states by city
 
+Astro.response.headers.set('Cache-Control', 'max-age=0, s-maxage=604800, stale-while-revalidate=59')
 let {post} = Astro.props;
 
- let { state, facility,  } = Astro.params;
+ let { state, facility  } = Astro.params;
 
 
 let {updatedOn, title, path, facilityName, county,city,   stateName, slug} = post.props.post
 let cleanState = post.props.post.state;
-// export let finalCleanState = cleanState
-// console.log(882323,cleanState);
-//  export let stest = Astro.site.pathname
-// import cleanState from './[slug].astro'
+
 export function getTitleDesc(cleanState:string, facilityName:string, county:string, slug: any, city:string) {
 let title='';
 let desc='';
-  // console.log(777444343434,slug);
+  
 
   switch (slug) {
     case 'visitation':
       
      title=facilityName + " Visitation | "  + cleanState;
-      title = title.length > 60 ? 'Visit ' + facilityName  : title
+      title = title.length > 60 ? 'Visit ' + facilityName : title
       
-      desc = `Visiting ${facilityName} and need visit hours? | Use Victim Assist free to find any ${county} DOC inmate | Save 70% on prison calls, photos, commissary  & more.`
+      desc = `Visiting ${facilityName} and need visit hours? | Use Claims Advocacy free to find any ${county} DOC inmate | Save 70% on prison calls, photos, commissary  & more.`
   //     desc = desc.length > 200 ? `Free inmate locator to any ${county}, ${cleanState} DOC facility. Save 70% on jail and prison calls, photos, mail letters, commissary nationwide`
   //  : desc
 
@@ -49,7 +49,7 @@ let desc='';
       // $facility_name Commissary | $facility_state
       title = title.length > 60 ? facilityName + " Commissary" : title
       
-      desc =`Put money on books at ${facilityName} Inmate Trust Account. Send inmate money to any ${city}, ${cleanState} to make jail deposits free of hassle. Use Victim Assist to add prison funds today.`
+      desc =`Put money on books at ${facilityName} Inmate Trust Account. Send inmate money to any ${city}, ${cleanState} to make jail deposits free of hassle. Use Claims Advocacy to add prison funds today.`
   //     desc = desc.length > 200 ? `Free inmate locator to any ${county}, ${cleanState} DOC facility. Save 70% on jail and prison calls, photos, mail letters, commissary nationwide`
   //  : desc
 
@@ -70,7 +70,7 @@ let desc='';
       title=facilityName + " Mail | "  + cleanState; 
       title = title.length > 60 ? facilityName + " Mail"  : title
       
-      desc=`Write a Prisoner at ${facilityName} | Send inmate mail and letters to a ${county} jail, ${cleanState} prison, federal correctional facility. Use Victim Assist free of hassle for email info, inmate lookup and to on phone calls.`
+      desc=`Write a Prisoner at ${facilityName} | Send inmate mail and letters to a ${county} jail, ${cleanState} prison, federal correctional facility. Use Claims Advocacy free of hassle for email info, inmate lookup and to on phone calls.`
   //     desc = desc.length > 200 ? `Free inmate locator to any ${county}, ${cleanState} DOC facility. Save 70% on jail and prison calls, photos, mail letters, commissary nationwide`
   //  : desc
 
@@ -105,8 +105,6 @@ const frontmatter: Frontmatter = {
  let currentCity = finalTitlDesc;
 
  
-
-
 export async function getName(state:string) {
    let finalTitlDesc = "nex";
 
@@ -120,6 +118,7 @@ export let test = "ssstest"
 
 export let thisState = "9966775757676";
 
+// console.log(5599934343434, state,988,thisState)
 
  let piet = {
   title: finalTitlDesc.title,
@@ -128,15 +127,10 @@ export let thisState = "9966775757676";
 }
 
 
-
- const code = Astro.request.url;
-
 export let gstest = getName("piet");
 
 
 export let sfinalTitlDesc = await testGetTitleDesc("Astro", {city:"finalTitlDesc"} );
-
-
 
 export async function testGetTitleDesc(cleanState:string, props:any) {
 
@@ -148,52 +142,53 @@ export async function testGetTitleDesc(cleanState:string, props:any) {
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
 
 
+// const inmate_calling = await fetch(
+//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-inmate-calling'
+// ).then((res) => res.json());
 
-// const write_a_prisoner = await fetch(
-//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-write-a-prisoner'
+// const inmate_calling_lg = await fetch(
+//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-inmate-calling-lg'
+// ).then((res) => res.json());
+
+// const inmate_calling = await fetch(
+//   'http://localhost:8888/.netlify/functions/neo-api-inmate-calling'
 // ).then((res) => res.json());
 
 
-// const write_a_prisoner_lg = await fetch(
-//   'https://beautiful-peony-0b2daf.netlify.app/.netlify/functions/neo-api-write-a-prisoner-lg'
+// const inmate_calling = await fetch(
+//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-inmate-calling.json'
 // ).then((res) => res.json());
 
-// const write_a_prisoner = await fetch(
-//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-write-a-prisoner.json'
+// const inmate_calling_lg = await fetch(
+//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-inmate-calling-lg.json'
 // ).then((res) => res.json());
 
-// const write_a_prisoner_lg = await fetch(
-//   'https://victim-assist-prod-blog-o03n238b6-victim-assist.vercel.app/api/neo-api-write-a-prisoner-lg.json'
+// const inmate_calling = await fetch(
+//   'http://localhost:3000/neoapi/neo-api-inmate-calling.json'
 // ).then((res) => res.json());
 
-// const write_a_prisoner = await fetch(
-//   'http://localhost:8888/neoapi/neo-api-write-a-prisoner.json'
-// ).then((res) => res.json());
-
-// const write_a_prisoner_lg = await fetch(
-//   'http://localhost:8888/neoapi/neo-api-write-a-prisoner-lg.json'
-// ).then((res) => res.json());
-
-// const write_a_prisoner = await fetch(
-//   'http://localhost:8888/.netlify/functions/neo-api-write-a-prisoner'
+// const inmate_calling_lg = await fetch(
+//   'http://localhost:3000/neoapi/neo-api-inmate-calling-lg.json'
 // ).then((res) => res.json());
 
 
-// const write_a_prisoner_lg = await fetch(
-//   'http://localhost:8888/.netlify/functions/neo-api-write-a-prisoner-lg'
+// const inmate_calling_lg = await fetch(
+//   'http://localhost:8888/.netlify/functions/neo-api-inmate-calling-lg'
 // ).then((res) => res.json());
 
-// const write_a_prisoner = await fetch(
-//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-write-a-prisoner.json'
-// ).then((res) => res.json());
-
-
-// const write_a_prisoner_lg  = await fetch(
-//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-write-a-prisoner-lg.json'
+// const inmate_calling = await fetch(
+//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-inmate-calling.json'
 // ).then((res) => res.json());
 
 
-// let combinedResponses = [].concat(write_a_prisoner.message, write_a_prisoner_lg.message);
+// const inmate_calling_lg  = await fetch(
+//   'https://victim-assist-prod-blog-8esab2mg2-victim-assist.vercel.app/neoapi/neo-api-inmate-calling-lg.json'
+// ).then((res) => res.json());
+
+
+
+// let combinedResponses = [].concat(inmate_calling.message, inmate_calling_lg.message);
+// let combinedResponses = [].concat(inmate_calling.message); 
 
 // let finalResponses = {message:combinedResponses}
 
@@ -207,8 +202,8 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
       updatedOn: '12-16-2022',
       stateName: 'alabama',
       path: 'hackleburg-jail',
-      slug: 'visitation',
-      slugPath: 'visitation',
+      slug: 'inmate-calling',
+      slugPath: 'inmate-calling',
       facilityName: 'Hackleburg Jail',
       city: 'Hackleburg',
       county: 'Marion County',
@@ -216,47 +211,42 @@ export async function getStaticPaths({ paginate }: { paginate: PaginateFunction 
       address: '314 First Avenue, Hackleburg, AL, 35564',
       phone: '205-935-5195'
     },
-    {
-      state: 'Massachusetts',
-      facility: 'new-bedford-police-jail',
-      title: 'New Bedford Police Jail',
-      updatedOn: '12-16-2022',
-      stateName: 'massachusetts',
-      path: 'new-bedford-police-jail',
-      slug: 'visitation',
-      slugPath: 'visitation',
-      facilityName: 'New Bedford Police Jail',
-      city: 'New Bedford',
-      county: 'Bristol County',
-      locator: 'Use Our Free Inmate Locator',
-      address: '871 Rockdale Avenue, New Bedford, MA, 02740',
-      phone: '508-991-6300'
-    },
-    {
-      state: 'Georgia',
-      facility: 'nelson-jail',
-      title: 'Nelson Jail',
-      updatedOn: '12-16-2022',
-      stateName: 'georgia',
-      path: 'nelson-jail',
-      slug: 'visitation',
-      slugPath: 'visitation',
-      facilityName: 'Nelson Jail',
-      city: 'Nelson',
-      county: 'Cherokee County',
-      locator: 'Use Our Free Inmate Locator',
-      address: '1985 Kennesaw Avenue\n PO Box 100, Nelson, GA, 30151',
-      phone: '770-735-2211'
-    },
+    // {
+    //   state: 'Massachusetts',
+    //   facility: 'new-bedford-police-jail',
+    //   title: 'New Bedford Police Jail',
+    //   updatedOn: '12-16-2022',
+    //   stateName: 'massachusetts',
+    //   path: 'new-bedford-police-jail',
+    //   slug: 'visitation',
+    //   slugPath: 'visitation',
+    //   facilityName: 'New Bedford Police Jail',
+    //   city: 'New Bedford',
+    //   county: 'Bristol County',
+    //   locator: 'Use Our Free Inmate Locator',
+    //   address: '871 Rockdale Avenue, New Bedford, MA, 02740',
+    //   phone: '508-991-6300'
+    // },
+    // {
+    //   state: 'Georgia',
+    //   facility: 'nelson-jail',
+    //   title: 'Nelson Jail',
+    //   updatedOn: '12-16-2022',
+    //   stateName: 'georgia',
+    //   path: 'nelson-jail',
+    //   slug: 'visitation',
+    //   slugPath: 'visitation',
+    //   facilityName: 'Nelson Jail',
+    //   city: 'Nelson',
+    //   county: 'Cherokee County',
+    //   locator: 'Use Our Free Inmate Locator',
+    //   address: '1985 Kennesaw Avenue\n PO Box 100, Nelson, GA, 30151',
+    //   phone: '770-735-2211'
+    // },
     
   ]
 }
 
-// let slugs = ['visitation', 'write-a-prisoner']
-// let allFacs = slugs.map( slug=>{
-
-//   return slug;
-// } )
 
 // let response2 
 let newFacs = response2.message.map( (res: {
@@ -277,29 +267,23 @@ let newFacs = response2.message.map( (res: {
     slugPath:string
 
 }) =>{
-      // console.log(54545455,res)
+      
       let {updatedOn, title, path, facilityName,    stateName, city, county, state, facility, address, phone, locator, slug, slugPath} = res
       slug == undefined || slug == '' ? slug=' ' : slug;
-      // facility = facility.replace(/\s/g , "-").replace("/" , " "); 
-      // facilityName = facilityName.replace(/\s/g , "-").replace("/" , " "); 
-      // console.log(7444,state,stateName,44232, slug);
-      // console.log(typeof slug, slug, 8856454545);
-
-    // slug='write-a-prisoner'
-
+  
     facility = facility.replace("/" , " ")
   facilityName = facilityName.replace("/" , " ");
   title = title.replace("/" , " ");
       let finalUrl = { 
         
-        params: { state:stateName, facility, write:slug, }, 
+        params: { state:stateName, facility, calling:slug, }, 
           props:  { post:{
             title, updatedOn,stateName,path,facilityName,city,county,locator,address,phone,slug, state, slugPath
         }
       } 
     }
 
-   
+    
     return finalUrl
 
 })
@@ -315,7 +299,7 @@ let newFacs = response2.message.map( (res: {
 
 }
 
-
+// console.log(post, )
 
 ---
 
