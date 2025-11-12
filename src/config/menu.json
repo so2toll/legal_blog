@@ -49,13 +49,14 @@
       "name": "Contact",
       "url": "/blog/contact"
     },
-    {
-      "name": "Elements",
-      "url": "/blog/elements"
-    },
+   
     {
       "name": "Privacy Policy",
       "url": "/blog/privacy-policy"
+    },
+    {
+      "name": "Terms",
+      "url": "/blog/terms"
     }
   ]
 }
